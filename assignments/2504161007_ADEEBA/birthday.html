@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise 🎂</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    overflow: hidden;
+    background: #10040a;
+}
+
+/* =========================
+   COMMON SCREEN
+========================= */
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.8s ease,
+                transform 0.8s ease;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.05);
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#passwordScreen {
+    background:
+        radial-gradient(circle at center,
+        #ff174f 0%,
+        #d6003c 35%,
+        #570016 100%);
+
+    color: white;
+}
+
+.passwordBox {
+    text-align: center;
+    width: 330px;
+}
+
+.gift {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.passwordBox h1 {
+    font-size: 18px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.dots {
+    height: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+    font-size: 22px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 65px);
+    justify-content: center;
+    gap: 12px;
+}
+
+.key {
+    width: 65px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.16);
+    color: white;
+
+    font-size: 19px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    cursor: pointer;
+}
+
+.key:active {
+    transform: scale(0.9);
+}
+
+.error {
+    height: 20px;
+    margin-top: 15px;
+    color: #ffd2dc;
+    font-size: 13px;
+}
+
+
+/* =========================
+   LETTER SCREEN
+========================= */
+
+#letterScreen {
+    background:
+        radial-gradient(circle,
+        #ff174f,
+        #a90032 60%,
+        #4b0016);
+
+    color: #43212a;
+}
+
+.letterContainer {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    max-width: 850px;
+    width: 90%;
+}
+
+.letter {
+    background: #fffaf0;
+    width: 430px;
+    min-height: 470px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35);
+
+    transform: rotate(-1deg);
+
+    position: relative;
+}
+
+.letter small {
+    letter-spacing: 4px;
+    color: #8e7070;
+}
+
+.letter h1 {
+    margin: 8px 0 20px;
+    color: #b4374b;
+    font-family: cursive;
+    font-size: 36px;
+}
+
+.letter p {
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.signature {
+    margin-top: 25px;
+    text-align: right;
+    font-family: cursive;
+    color: #b4374b;
+}
+
+.photos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.photo {
+    width: 150px;
+    height: 120px;
+
+    object-fit: cover;
+
+    background: white;
+    padding: 7px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
+
+    transform: rotate(3deg);
+}
+
+.photo:nth-child(2) {
+    transform: rotate(-3deg);
+}
+
+.photo:nth-child(3) {
+    transform: rotate(2deg);
+}
+
+.wishButton {
+    position: absolute;
+    bottom: 35px;
+
+    border: none;
+    border-radius: 30px;
+
+    padding: 13px 28px;
+
+    background: #ffe39a;
+    color: #663c20;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.wishButton:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   WISH SCREEN
+========================= */
+
+#wishScreen {
+    background:
+        radial-gradient(circle at center,
+        #5d5b85,
+        #25233e 55%,
+        #090912);
+
+    color: white;
+    flex-direction: column;
+    text-align: center;
+}
+
+.wishTitle {
+    font-family: cursive;
+    font-size: 38px;
+    margin-bottom: 8px;
+
+    text-shadow: 0 0 20px white;
+}
+
+.wishSubtitle {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 90px;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    width: 190px;
+    height: 85px;
+
+    background: #fff;
+    border-radius: 12px;
+
+    position: relative;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.4);
+}
+
+.cake::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 18px;
+
+    background: #ffd8df;
+
+    top: 18px;
+    left: 0;
+
+    border-radius: 10px;
+}
+
+.cake::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 15px;
+
+    background: #ff91aa;
+
+    bottom: 12px;
+    left: 0;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   CANDLES
+========================= */
+
+.candles {
+    position: absolute;
+
+    top: -62px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.candle {
+    width: 10px;
+    height: 45px;
+
+    background: #fff1a8;
+
+    border-radius: 5px;
+
+    position: relative;
+}
+
+.flame {
+    position: absolute;
+
+    width: 14px;
+    height: 22px;
+
+    background: #ffbd35;
+
+    border-radius: 50% 50% 50% 50%;
+
+    top: -21px;
+    left: -2px;
+
+    box-shadow:
+        0 0 15px #ffb300;
+
+    animation: flame 0.4s infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2) rotate(3deg);
+    }
+}
+
+.blowButton {
+    margin-top: 70px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+#finalMessage {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle,
+        #ff416c,
+        #7c0027 70%);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 1s;
+}
+
+#finalMessage.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#finalMessage h1 {
+    font-family: cursive;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+#finalMessage p {
+    max-width: 600px;
+    padding: 20px;
+
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    width: 9px;
+    height: 14px;
+
+    top: -20px;
+
+    animation: fall 4s linear forwards;
+
+    z-index: 100;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    .letterContainer {
+        justify-content: center;
+    }
+
+    .letter {
+        width: 88%;
+        min-height: 430px;
+        padding: 25px;
+    }
+
+    .photos {
+        position: absolute;
+        right: 8px;
+        top: 80px;
+    }
+
+    .photo {
+        width: 85px;
+        height: 70px;
+    }
+
+    .letter h1 {
+        font-size: 30px;
+    }
+
+    .letter p {
+        font-size: 13px;
+        padding-right: 45px;
+    }
+
+    .wishTitle {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     SCREEN 1 : PASSWORD
+================================================== -->
+
+<section id="passwordScreen" class="screen active">
+
+    <div class="passwordBox">
+
+        <div class="gift">🎁</div>
+
+        <h1>ENTER PASSWORD</h1>
+
+        <div class="dots" id="dots">
+            ○ ○ ○ ○
+        </div>
+
+        <div class="keypad">
+
+            <button class="key" onclick="press(1)">1</button>
+            <button class="key" onclick="press(2)">2</button>
+            <button class="key" onclick="press(3)">3</button>
+
+            <button class="key" onclick="press(4)">4</button>
+            <button class="key" onclick="press(5)">5</button>
+            <button class="key" onclick="press(6)">6</button>
+
+            <button class="key" onclick="press(7)">7</button>
+            <button class="key" onclick="press(8)">8</button>
+            <button class="key" onclick="press(9)">9</button>
+
+            <button class="key" onclick="clearPassword()">⌫</button>
+            <button class="key" onclick="press(0)">0</button>
+            <button class="key" onclick="checkPassword()">✓</button>
+
+        </div>
+
+        <div class="error" id="error"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SCREEN 2 : BIRTHDAY LETTER
+================================================== -->
+
+<section id="letterScreen" class="screen">
+
+    <div class="letterContainer">
+
+        <div class="letter">
+
+            <small>HAPPY</small>
+
+            <h1>Birthday 🎂</h1>
+
+            <p>
+
+                Today is a very special day because
+                it is the day someone really special
+                was born. ❤️
+
+                <br><br>
+
+                I hope your life is always filled with
+                happiness, beautiful memories and
+                people who truly care about you.
+
+                <br><br>
+
+                Keep smiling, keep dreaming and never
+                stop being the amazing person you are.
+
+                <br><br>
+
+                May this new year of your life bring
+                you everything you wish for. ✨
+
+            </p>
+
+            <div class="signature">
+                With love ❤️
+            </div>
+
+        </div>
+
+
+        <div class="photos">
+
+            <!-- CHANGE THESE IMAGE LINKS -->
+            <img class="photo"
+                 src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500"
+                 alt="Photo 1">
+
+            <img class="photo"
+                 src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=500"
+                 alt="Photo 2">
+
+            <img class="photo"
+                 src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500"
+                 alt="Photo 3">
+
+        </div>
+
+    </div>
+
+
+    <button class="wishButton"
+            onclick="showWish()">
+
+        Make a wish 🎂
+
+    </button>
+
+</section>
+
+
+
+<!-- ==================================================
+     SCREEN 3 : MAKE A WISH
+================================================== -->
+
+<section id="wishScreen" class="screen">
+
+    <h1 class="wishTitle">
+        Make a wish... ✨
+    </h1>
+
+    <p class="wishSubtitle">
+        May your wishes come true 💫
+    </p>
+
+
+    <div class="cake">
+
+        <div class="candles">
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="blowButton"
+            onclick="blowCandles()">
+
+        Make a wish ✨
+
+    </button>
+
+</section>
+
+
+
+<!-- ==================================================
+     FINAL MESSAGE
+================================================== -->
+
+<div id="finalMessage">
+
+    <h1>
+        Happy Birthday! 🎂❤️
+    </h1>
+
+    <p>
+        May your smile never fade,
+        your dreams become reality,
+        and every new year of your life
+        become more beautiful than the last.
+
+        <br><br>
+
+        Have the most amazing birthday ever! 🎉✨
+    </p>
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   PASSWORD
+================================================== */
+
+/*
+   CHANGE YOUR PASSWORD HERE
+   Example: "1205"
+*/
+
+const correctPassword = "0786";
+
+let password = "";
+
+
+function press(number) {
+
+    if(password.length >= 4) {
+        return;
+    }
+
+    password += number;
+
+    updateDots();
+
+}
+
+
+function updateDots() {
+
+    let result = "";
+
+    for(let i = 0; i < 4; i++) {
+
+        if(i < password.length) {
+            result += "● ";
+        } else {
+            result += "○ ";
+        }
+
+    }
+
+    document.getElementById("dots").innerText = result;
+
+}
+
+
+function clearPassword() {
+
+    password = "";
+
+    updateDots();
+
+    document.getElementById("error").innerText = "";
+
+}
+
+
+function checkPassword() {
+
+    if(password === correctPassword) {
+
+        document.getElementById("passwordScreen")
+            .classList.remove("active");
+
+        setTimeout(() => {
+
+            document.getElementById("letterScreen")
+                .classList.add("active");
+
+        }, 500);
+
+    } else {
+
+        document.getElementById("error")
+            .innerText = "Wrong password 💔";
+
+        password = "";
+
+        updateDots();
+
+    }
+
+}
+
+
+/* ==================================================
+   LETTER → WISH
+================================================== */
+
+function showWish() {
+
+    document.getElementById("letterScreen")
+        .classList.remove("active");
+
+
+    setTimeout(() => {
+
+        document.getElementById("wishScreen")
+            .classList.add("active");
+
+    }, 500);
+
+}
+
+
+/* ==================================================
+   BLOW CANDLES
+================================================== */
+
+function blowCandles() {
+
+    let flames =
+        document.querySelectorAll(".flame");
+
+
+    flames.forEach(flame => {
+
+        flame.style.display = "none";
+
+    });
+
+
+    setTimeout(() => {
+
+        document.getElementById("finalMessage")
+            .classList.add("show");
+
+        createConfetti();
+
+    }, 800);
+
+}
+
+
+/* ==================================================
+   CONFETTI
+================================================== */
+
+function createConfetti() {
+
+    for(let i = 0; i < 120; i++) {
+
+        let piece =
+            document.createElement("div");
+
+        piece.classList.add("confetti");
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.backgroundColor =
+            `hsl(${Math.random() * 360},100%,60%)`;
+
+        piece.style.animationDuration =
+            (Math.random() * 3 + 2) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
