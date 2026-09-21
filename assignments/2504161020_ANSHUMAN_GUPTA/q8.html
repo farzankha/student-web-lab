@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Layout</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min
+height: 100vh; }
+        header { background-color: #2c3e50; color: white; padding: 1rem; text-align:
+center; }
+        .container { display: flex; flex: 1; }
+        nav { width: 250px; background-color: #ecf0f1; padding: 1rem; }
+        nav ul { list-style-type: none; }
+        nav li { margin-bottom: 10px; }
+        main { flex: 1; padding: 1.5rem; }
+        footer { background-color: #2c3e50; color: white; text-align: center; padding:
+0.8rem; }
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            nav { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modern Academic Web Application</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Grades</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Student Dashboard</h2>
+            <p>This responsive layout replaces legacy multi-page framesets with clean CSS
+Flexbox structure.</p>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 KMCLU Portal</p>
+    </footer>
+</body>
+</html>
