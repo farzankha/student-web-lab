@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames: Old Approach vs Modern Design</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        main {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        article {
+            flex: 3;
+        }
+
+        aside {
+            flex: 1;
+            background: #f2f2f2;
+            padding: 15px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Frames: Old Approach vs Modern Design</h1>
+        <p>Traditional Framesets and Modern Semantic HTML</p>
+    </header>
+
+    <nav>
+        <a href="#old">Old Approach</a>
+        <a href="#limitations">Limitations</a>
+        <a href="#modern">Modern Design</a>
+    </nav>
+
+    <main>
+
+        <article>
+
+            <section id="old">
+                <h2>Traditional Frames and Framesets</h2>
+
+                <p>
+                    In older HTML, the &lt;frameset&gt; element was used to divide
+                    the browser window into multiple sections called frames.
+                    Each frame could load a different HTML document.
+                </p>
+
+                <h3>Example of Traditional Frameset</h3>
+
+                <pre>
+&lt;frameset cols="25%,75%"&gt;
+    &lt;frame src="menu.html"&gt;
+    &lt;frame src="content.html"&gt;
+&lt;/frameset&gt;
+                </pre>
+
+                <p>
+                    The first frame could contain navigation links, while the
+                    second frame displayed the selected content.
+                </p>
+            </section>
+
+            <section id="limitations">
+                <h2>Limitations of Frames</h2>
+
+                <table>
+                    <tr>
+                        <th>Limitation</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>SEO Problems</td>
+                        <td>Search engines could have difficulty indexing framed content correctly.</td>
+                    </tr>
+                    <tr>
+                        <td>Accessibility</td>
+                        <td>Frames could make navigation difficult for screen readers.</td>
+                    </tr>
+                    <tr>
+                        <td>Bookmarking</td>
+                        <td>Individual frame content was difficult to bookmark or share directly.</td>
+                    </tr>
+                    <tr>
+                        <td>Browser History</td>
+                        <td>Back and forward navigation could behave unexpectedly.</td>
+                    </tr>
+                    <tr>
+                        <td>Responsive Design</td>
+                        <td>Frames were not suitable for modern mobile and responsive layouts.</td>
+                    </tr>
+                    <tr>
+                        <td>Obsolete Technology</td>
+                        <td>&lt;frameset&gt; and &lt;frame&gt; are not part of HTML5.</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="modern">
+                <h2>Modern Page Structure</h2>
+
+                <p>
+                    Modern websites use semantic HTML elements such as
+                    &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;,
+                    &lt;article&gt;, &lt;aside&gt; and &lt;footer&gt;.
+                    CSS Flexbox or Grid is used to create the page layout.
+                </p>
+
+                <h3>Modern Structure</h3>
+
+                <pre>
+&lt;header&gt;Website Header&lt;/header&gt;
+&lt;nav&gt;Navigation Menu&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;Main Content&lt;/article&gt;
+    &lt;aside&gt;Sidebar&lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;Footer&lt;/footer&gt;
+                </pre>
+
+                <p>
+                    This approach provides better accessibility, responsiveness,
+                    maintainability and compatibility with modern browsers.
+                </p>
+            </section>
+
+        </article>
+
+        <aside>
+            <h2>Modern Benefits</h2>
+            <ul>
+                <li>Semantic structure</li>
+                <li>Responsive layouts</li>
+                <li>Better accessibility</li>
+                <li>Improved SEO</li>
+                <li>Easy maintenance</li>
+                <li>Flexible CSS layouts</li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Modern Web Design</p>
+    </footer>
+
+</body>
+</html>
