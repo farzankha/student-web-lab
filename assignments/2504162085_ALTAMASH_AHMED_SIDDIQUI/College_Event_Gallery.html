@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Event Gallery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f7;
+    }
+
+    h1 {
+      margin: 0 0 30px;
+      color: #1f2937;
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 0 auto;
+    }
+
+    figure {
+      margin: 0;
+      width: 250px;
+      padding: 10px;
+      background-color: white;
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: #333333;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 25px 15px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      figure {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>College Event Gallery</h1>
+  <div class="gallery">
+    <figure>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQd016kWegAgFN7Tqcl60LaZJLJ66qDS30wW20jUJgA&s=10" alt="Students performing a cultural dance on stage">
+      <figcaption>Cultural Dance Performance</figcaption>
+    </figure>
+    <figure>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScgOhvPzxJ_Ki4tC2EzQMXePgXXukpDYferHE1qEcrfg&s" alt="Two students engaged in a debate competition">
+      <figcaption>Debate Competition Finals</figcaption>
+    </figure>
+    <figure>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjslSOt_vycr9EaMPZW0QTLlQNzZkh_-QOc9sWN_PC8w&s=10" alt="Student explaining a science project to visitors">
+      <figcaption>Science Fair Exhibition</figcaption>
+    </figure>
+    <figure>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFvdNHhmIxNNySzhKB8hmfyh2gFyehj-JoBfmA5ZHh0w&s=10" alt="College band performing live music">
+      <figcaption>Live Music by College Band</figcaption>
+    </figure>
+  </div>
+</body>
+</html>
