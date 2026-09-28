@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Layout - No Frames</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 80px 1fr;
+      grid-template-areas:
+        "banner banner"
+        "menu   content";
+      height: 100vh; margin: 0;
+    }
+    header { grid-area: banner; background: #1a5276; color: #fff; }
+    nav    { grid-area: menu;   background: #f4f6f7; }
+    main   { grid-area: content; padding: 1rem; }
+ 
+      body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "banner"
+          "menu"
+          "content";
+    }
+  </style>
+</head>
+<body>
+  <header><h1>College Department Portal</h1></header>
+  <nav>
+      <a href="#courses">Courses</a> &emsp;
+      <a href="#notices">Notices</a>
+  </nav>
+  <main>
+    <section id="courses"><h2>Courses</h2><p>BCA <br>MCA <br> B.Sc Computer Science</p></section>
+    <section id="notices"><h2>Notices</h2><p>No new notices available</p></section>
+  </main>
+</body>
+</html>
