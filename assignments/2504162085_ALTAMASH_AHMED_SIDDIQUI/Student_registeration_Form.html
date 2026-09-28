@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #12292d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+       width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: flex;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input[type="submit"], input[type="reset"] {
+      width: 48%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    input[type="submit"] {
+      background: #28a745;
+      color: #fff;
+    }
+
+    input[type="reset"] {
+      background: #dc3545;
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background: #218838;
+    }
+
+    input[type="reset"]:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form action="register.php" method="post" enctype="multipart/form-data">
+      
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <label>Gender:</label>
+      <div class="radio-group">
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="other">Other</label>
+        <input type="radio" id="other" name="gender" value="Other">
+      </div>
+      
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="">--Select Course--</option>
+        <option value="BCA">BCA</option>
+        <option value="B.Tech">B.Tech</option>
+        <option value="B.Sc">B.Sc</option>
+        <option value="MBA">MBA</option>
+      </select>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+      
+      <label>Hobbies:</label>
+      <div class="checkbox-group">
+        <label for="reading">Reading</label>
+        <input type="checkbox" id="reading" name="hobbies" value="Reading">
+
+        <label for="sports">Sports</label>
+        <input type="checkbox" id="sports" name="hobbies" value="Sports">
+        
+        <label for="music">Music</label>
+        <input type="checkbox" id="music" name="hobbies" value="Music">
+        
+        <label for="travel">Travel</label>
+        <input type="checkbox" id="travel" name="hobbies" value="Travel">
+      </div>
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="4" required></textarea>
+      
+      <label for="file">Upload Photo/Document:</label>
+      <input type="file" id="file" name="file" accept=".jpg,.png,.pdf" >
+      
+      <div class="btn-group">
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
