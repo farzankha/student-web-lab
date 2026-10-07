@@ -1,70 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SYED ALI PARVEZ - Web Technology Lab Portfolio</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f8fafc; color:#1e293b; padding:40px 20px; }
-    .box { max-width:800px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
-    h1 { margin-top:0; font-size:24px; color:#0f172a; }
-    .meta { color:#64748b; font-size:14px; margin-bottom:20px; border-bottom:1px solid #e2e8f0; padding-bottom:15px; }
-    ul { list-style:none; padding:0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design Assignment</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:#1f2937;line-height:1.6}
+header{background:#12355b;color:#fff;padding:24px 6%;box-shadow:0 2px 8px #0002}
+header h1{margin:0 0 4px;font-size:28px}
+header p{margin:0;color:#dbeafe}
+nav{background:#0b253f;padding:10px 6%;position:sticky;top:0;z-index:5}
+nav a{color:#fff;text-decoration:none;margin:4px 10px 4px 0;display:inline-block;padding:7px 10px;border-radius:5px}
+nav a:hover{background:#1d4f7a}
+main{width:min(1050px,92%);margin:28px auto}
+.card{background:#fff;padding:26px;border-radius:10px;box-shadow:0 4px 16px #00000012;margin-bottom:22px}
+h2{color:#12355b;margin-top:0}
+h3{color:#164e78}
+table{width:100%;border-collapse:collapse;background:#fff}
+caption{font-size:21px;font-weight:bold;padding:12px;color:#12355b}
+th,td{border:1px solid #b8c4d1;padding:11px;text-align:center}
+th{background:#e8eef5}
+fieldset{border:1px solid #b8c4d1;border-radius:7px;margin:16px 0;padding:15px}
+label{display:block;font-weight:bold;margin:10px 0 5px}
+input,select,textarea{width:100%;padding:10px;border:1px solid #94a3b8;border-radius:5px;font:inherit}
+input[type=radio],input[type=checkbox]{width:auto}
+button{padding:10px 18px;border:0;border-radius:5px;background:#12355b;color:white;cursor:pointer;margin-right:8px}
+button[type=reset]{background:#64748b}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+figure{margin:0;background:#f8fafc;padding:12px;border:1px solid #d7dee7;border-radius:8px}
+figure svg{width:100%;height:auto;border-radius:5px}
+figcaption{font-weight:bold;text-align:center;padding:9px 2px}
+.notice{background:#fff7ed;border-left:5px solid #f97316;padding:13px;margin-top:20px}
+.layout{display:flex;gap:20px}
+aside{width:25%;background:#e8eef5;padding:20px;border-radius:8px}
+.content{flex:1;background:#fff;padding:25px;border-radius:8px}
+footer{background:#0b253f;color:#fff;padding:18px 6%;margin-top:30px}
+code{background:#eef2f7;padding:2px 5px;border-radius:3px}
+@media(max-width:700px){.layout{flex-direction:column}aside{width:100%}nav{position:static}}
+</style>
+
 </head>
 <body>
-  <div class="box">
-    <h1>SYED ALI PARVEZ's Web Technology Lab Work</h1>
-    <div class="meta"><b>Roll No:</b> 2504161073 &nbsp;|&nbsp; <b>Total Uploaded Files:</b> 8</div>
-    <h3>Submitted Practical Assignments:</h3>
-    <ul>
-    <li style="margin-bottom:12px;">
-      <a href="q1.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 1] q1.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q2.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 2] q2.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q3.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 3] q3.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q4.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 4] q4.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q5.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 5] q5.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q6.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 6] q6.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q7.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 7] q7.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="q8.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 8] q8.html
-      </a>
-    </li>
-  </ul>
-  </div>
+<header><h1>Web Design Assignment</h1><p>HTML &amp; HTML5 — Unit II</p></header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="q1.html">Q1 Profile</a>
+<a href="q2.html">Q2 Timetable</a>
+<a href="q3.html">Q3 Form</a>
+<a href="q4.html">Q4 Gallery</a>
+<a href="q5.html">Q5 Navigation</a>
+<a href="q6.html">Q6 Semantic</a>
+<a href="q7.html">Q7 Entities</a>
+<a href="q8.html">Q8 Layout</a>
+</nav>
+
+
+<main>
+<section class="card">
+<h2>HTML &amp; HTML5 Practical Assignment</h2>
+<p>This page provides access to the practical work included in Unit II of the assignment.</p>
+<div class="gallery">
+<figure><figcaption>Question 1</figcaption><p>Personal Profile</p><a href="q1.html">Open Question 1</a></figure>
+<figure><figcaption>Question 2</figcaption><p>University Timetable</p><a href="q2.html">Open Question 2</a></figure>
+<figure><figcaption>Question 3</figcaption><p>Student Registration Form</p><a href="q3.html">Open Question 3</a></figure>
+<figure><figcaption>Question 4</figcaption><p>Accessible Image Gallery</p><a href="q4.html">Open Question 4</a></figure>
+<figure><figcaption>Question 5</figcaption><p>Department Navigation</p><a href="q5.html">Open Question 5</a></figure>
+<figure><figcaption>Question 6</figcaption><p>Semantic HTML5</p><a href="q6.html">Open Question 6</a></figure>
+<figure><figcaption>Question 7</figcaption><p>Character Entities</p><a href="q7.html">Open Question 7</a></figure>
+<figure><figcaption>Question 8</figcaption><p>Frames and Modern Layout</p><a href="q8.html">Open Question 8</a></figure>
+</div>
+</section>
+</main>
+
+<footer>© 2026 — Web Design Assignment</footer>
 </body>
 </html>
