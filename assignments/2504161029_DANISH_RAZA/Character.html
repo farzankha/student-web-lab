@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Character Entity Challenge</title>
+</head>
+<body>
+
+<h1>Special Characters &amp; Symbols Reference</h1>
+
+<p>Sample sentence using entities: The formula reads &alpha; &times; &beta; &ge; &pi;,
+and the company&rsquo;s slogan is: &ldquo;Innovation &amp; Excellence&rdquo;
+&copy; 2026. Note that &lt;div&gt; is a tag, not text, and 1&nbsp;&lt;&nbsp;2 is true.</p>
+
+<table border="1">
+  <thead>
+    <tr><th>Character</th><th>Entity Name</th><th>Entity Number</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>&copy;</td><td><code>&amp;copy;</code></td><td><code>&amp;#169;</code></td><td>Copyright symbol</td></tr>
+    <tr><td>&reg;</td><td><code>&amp;reg;</code></td><td><code>&amp;#174;</code></td><td>Registered trademark</td></tr>
+    <tr><td>&lt;</td><td><code>&amp;lt;</code></td><td><code>&amp;#60;</code></td><td>Less-than / opening angle bracket</td></tr>
+    <tr><td>&gt;</td><td><code>&amp;gt;</code></td><td><code>&amp;#62;</code></td><td>Greater-than / closing angle bracket</td></tr>
+    <tr><td>&amp;</td><td><code>&amp;amp;</code></td><td><code>&amp;#38;</code></td><td>Ampersand</td></tr>
+    <tr><td>&ldquo;&rdquo;</td><td><code>&amp;ldquo; &amp;rdquo;</code></td><td><code>&amp;#8220; &amp;#8221;</code></td><td>Curly double quotation marks</td></tr>
+    <tr><td>&rsquo;</td><td><code>&amp;rsquo;</code></td><td><code>&amp;#8217;</code></td><td>Right single quote / apostrophe</td></tr>
+    <tr><td>&alpha;</td><td><code>&amp;alpha;</code></td><td><code>&amp;#945;</code></td><td>Greek letter alpha</td></tr>
+    <tr><td>&pi;</td><td><code>&amp;pi;</code></td><td><code>&amp;#960;</code></td><td>Pi (math constant)</td></tr>
+    <tr><td>&times;</td><td><code>&amp;times;</code></td><td><code>&amp;#215;</code></td><td>Multiplication sign</td></tr>
+    <tr><td>&divide;</td><td><code>&amp;divide;</code></td><td><code>&amp;#247;</code></td><td>Division sign</td></tr>
+    <tr><td>&ge;</td><td><code>&amp;ge;</code></td><td><code>&amp;#8805;</code></td><td>Greater than or equal to</td></tr>
+    <tr><td>&nbsp;</td><td><code>&amp;nbsp;</code></td><td><code>&amp;#160;</code></td><td>Non-breaking space</td></tr>
+  </tbody>
+</table>
+
+<h2>Why Character References Are Useful</h2>
+<p>Some characters like <code>&lt;</code> and <code>&amp;</code> are reserved by HTML
+itself for tag and entity syntax, so typing them literally would either break the
+page's markup or be silently swallowed by the parser - entities let the browser
+display the symbol as plain text instead of interpreting it as code. Other entities
+(&copy;, &alpha;, &times;) simply provide symbols that don't exist on a standard
+keyboard, and using the named or numeric reference guarantees the correct character
+renders consistently across browsers, operating systems and fonts.</p>
+
+</body>
+</html>
