@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BCA 2nd Year - Weekly Timetable</title>
+</head>
+<body>
+
+<h1>BCA 2nd Year - Section A</h1>
+<table border="1">
+  <caption>Weekly Class Timetable</caption>
+  <thead>
+    <tr>
+      <th>Day / Period</th>
+      <th>9:00-10:00</th>
+      <th>10:00-11:00</th>
+      <th>11:00-11:15</th>
+      <th>11:15-12:15</th>
+      <th>12:15-1:15</th>
+      <th>1:15-3:15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Monday</th>
+      <td>Data Structures<br><small>Dr. Sharma</small></td>
+      <td>DBMS<br><small>Prof. Verma</small></td>
+      <td rowspan="5">Recess</td>
+      <td>Operating Systems<br><small>Dr. Singh</small></td>
+      <td>Computer Networks<br><small>Prof. Gupta</small></td>
+      <td>Data Structures Lab<br><small>Dr. Sharma - Lab 1</small></td>
+    </tr>
+    <tr>
+      <th>Tuesday</th>
+      <td>DBMS<br><small>Prof. Verma</small></td>
+      <td>Computer Networks<br><small>Prof. Gupta</small></td>
+      <td>Data Structures<br><small>Dr. Sharma</small></td>
+      <td>Operating Systems<br><small>Dr. Singh</small></td>
+      <td>DBMS Lab<br><small>Prof. Verma - Lab 2</small></td>
+    </tr>
+    <tr>
+      <th>Wednesday</th>
+      <td>Operating Systems<br><small>Dr. Singh</small></td>
+      <td>Data Structures<br><small>Dr. Sharma</small></td>
+      <td>Maths III<br><small>Dr. Rao</small></td>
+      <td>DBMS<br><small>Prof. Verma</small></td>
+      <td>Computer Networks<br><small>Prof. Gupta</small></td>
+    </tr>
+    <tr>
+      <th>Thursday</th>
+      <td>Computer Networks<br><small>Prof. Gupta</small></td>
+      <td>Maths III<br><small>Dr. Rao</small></td>
+      <td>DBMS<br><small>Prof. Verma</small></td>
+      <td>Data Structures<br><small>Dr. Sharma</small></td>
+      <td>OS Lab<br><small>Dr. Singh - Lab 3</small></td>
+    </tr>
+    <tr>
+      <th>Friday</th>
+      <td>Maths III<br><small>Dr. Rao</small></td>
+      <td>Operating Systems<br><small>Dr. Singh</small></td>
+      <td>Computer Networks<br><small>Prof. Gupta</small></td>
+      <td colspan="2">Seminar / Project Work<br><small>All Faculty</small></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Why Tables Are Appropriate Here</h2>
+<p>A timetable is inherently grid-shaped data: it maps a two-dimensional
+relationship between <strong>days</strong> (rows) and <strong>time periods</strong>
+(columns), where each cell holds related facts (subject + faculty). The
+<code>&lt;table&gt;</code> element expresses this row/column relationship
+semantically, allowing screen readers to announce "Monday, 9:00-10:00,
+Data Structures" correctly. <code>rowspan</code> merges the recess column
+vertically since it is identical every day, and <code>colspan</code> merges
+the Friday seminar slot across two periods since one activity spans that
+time - both keep the grid accurate without repeating data.</p>
+
+</body>
+</html>
