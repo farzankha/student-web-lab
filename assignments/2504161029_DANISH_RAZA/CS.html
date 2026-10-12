@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CS &amp; IT Department - Semantic Layout</title>
+</head>
+<body>
+
+<header>
+  <h1>Department of Computer Science &amp; IT</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Notices</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Latest Updates</h2>
+    <article>
+      <h3>Semester Exam Schedule Released</h3>
+      <p>The odd-semester examination timetable has been published on the notice board.</p>
+    </article>
+    <article>
+      <h3>Tech Fest 2026 Registrations Open</h3>
+      <p>Students can now register for coding, robotics and poster presentation events.</p>
+    </article>
+  </section>
+
+  <aside>
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="#">Syllabus</a></li>
+      <li><a href="#">Faculty List</a></li>
+      <li><a href="#">Lab Schedule</a></li>
+    </ul>
+  </aside>
+</main>
+
+<footer>
+  <p>&copy; 2026 Department of Computer Science &amp; IT</p>
+</footer>
+
+<section>
+  <h2>Purpose of Each Semantic Element</h2>
+  <ul>
+    <li><strong>&lt;header&gt;</strong> - introductory content for the page: title and site branding.</li>
+    <li><strong>&lt;nav&gt;</strong> - marks the primary navigation links, letting screen readers and browsers jump straight to menu options.</li>
+    <li><strong>&lt;main&gt;</strong> - wraps the single, unique main content of the page (excluding repeated header/nav/footer).</li>
+    <li><strong>&lt;section&gt;</strong> - groups a thematically related block of content, such as "Latest Updates."</li>
+    <li><strong>&lt;article&gt;</strong> - an independent, self-contained piece of content (a single notice) that would still make sense if syndicated elsewhere.</li>
+    <li><strong>&lt;aside&gt;</strong> - content tangentially related to the main content, like quick links or a sidebar.</li>
+    <li><strong>&lt;footer&gt;</strong> - closing information such as copyright.</li>
+  </ul>
+  <p>Semantic elements are preferred over generic <code>&lt;div&gt;</code> containers
+  because they convey <em>meaning</em>, not just layout. Screen readers can let users
+  jump directly to "navigation" or "main content," search engines weigh
+  <code>&lt;article&gt;</code>/<code>&lt;section&gt;</code> content more meaningfully
+  for indexing, and other developers can read the markup and immediately understand
+  the page's structure without inspecting class names.</p>
+</section>
+
+</body>
+</html>
