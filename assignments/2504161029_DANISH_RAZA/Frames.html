@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Frames: Old Approach vs Modern Design</title>
+</head>
+<body>
+
+<h1>Frames: Old Approach vs Modern Design</h1>
+
+<h2>How Traditional Framesets Worked</h2>
+<p>In old HTML (HTML 4.01), a page could be split into independent scrollable
+regions using a <code>&lt;frameset&gt;</code> document that loaded separate
+HTML files into named <code>&lt;frame&gt;</code> panels - typically one frame
+for navigation and another for content, for example:</p>
+<pre>&lt;frameset cols="20%,80%"&gt;
+  &lt;frame src="nav.html" name="navFrame"&gt;
+  &lt;frame src="content.html" name="mainFrame"&gt;
+&lt;/frameset&gt;</pre>
+<p>Clicking a link in <code>nav.html</code> with <code>target="mainFrame"</code>
+would replace only the content frame, keeping the navigation frame static.</p>
+
+<h2>Limitations of Frames</h2>
+<ul>
+  <li><strong>Broken navigation:</strong> the browser's back/forward buttons and bookmarking often failed to capture the exact combination of frames shown, since the URL never changed.</li>
+  <li><strong>No single URL per view:</strong> users couldn't share a direct link to what they were actually looking at.</li>
+  <li><strong>Poor SEO:</strong> search engines struggled to index frame content correctly, since each frame was a separate document with no unifying page.</li>
+  <li><strong>Accessibility problems:</strong> screen readers had difficulty announcing frame context and relationships.</li>
+  <li><strong>Rigid, hard-to-maintain layout:</strong> resizing, nested framesets and cross-frame scripting were clumsy.</li>
+  <li><strong>Deprecated:</strong> <code>&lt;frameset&gt;</code>/<code>&lt;frame&gt;</code> were removed from the HTML5 specification entirely (only the largely unrelated <code>&lt;iframe&gt;</code> remains, for embedding a single external document).</li>
+</ul>
+
+<h2>Modern Replacement: Semantic HTML + CSS Layout</h2>
+<p>Instead of splitting the browser window into separate documents, a modern
+page is <strong>one single HTML document</strong> whose regions are marked
+with semantic elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+<code>&lt;main&gt;</code>, <code>&lt;aside&gt;</code>,
+<code>&lt;footer&gt;</code>) and visually arranged with CSS. This keeps one
+URL per view, lets the back button work normally, is fully indexable by
+search engines, and is responsive across screen sizes. A structural example:</p>
+
+<header><strong>Department Portal</strong></header>
+<nav><a href="#">Home</a> <a href="#">Courses</a> <a href="#">Contact</a></nav>
+<main>
+  <section>
+    <h3>Main Content</h3>
+    <p>This region replaces what an old "content frame" would have shown -
+    but it's part of the same document as everything else on the page.</p>
+  </section>
+  <aside>Sidebar / quick links</aside>
+</main>
+<footer>&copy; 2026 Department Portal</footer>
+
+<h2>Key Takeaway</h2>
+<p>Frames achieved visual separation of navigation and content by splitting
+the browser into multiple documents, at the cost of navigation, SEO and
+accessibility. Modern CSS layout achieves the same visual effect - and far
+more flexible ones - within a single semantically structured document,
+which is why frames are obsolete and unsupported in current HTML5 practice.</p>
+
+</body>
+</html>
