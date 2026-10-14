@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+</head>
+
+<body>
+
+  <h1>Student Registration</h1>
+
+  <form>
+    <label>Student Name:</label>
+    <input type="text" required>
+    <br><br>
+    <label>Email Address:</label>
+    <input type="email" required>
+    <br><br>
+    <label>Create Password:</label>
+    <input type="password" required>
+    <br><br>
+    <fieldset>
+      <legend>Select Gender</legend>
+
+      <input type="radio" name="gender"> Male
+      <input type="radio" name="gender"> Female
+      <input type="radio" name="gender"> Other
+
+    </fieldset>
+    <br>
+    <label>Select Course:</label>
+
+    <select>
+      <option>BCA</option>
+      <option>BBA</option>
+      <option>B.Com</option>
+    </select>
+    <br><br>
+    <label>Birth Date:</label>
+    <input type="date">
+    <br><br>
+    <fieldset>
+      <legend>Choose Hobbies</legend>
+
+      <input type="checkbox"> Reading
+      <input type="checkbox"> Music
+      <input type="checkbox"> Coding
+      <input type="checkbox"> Sports
+
+    </fieldset>
+    <br>
+    
+    <legend>Address:</legend>
+      <textarea rows="5" cols="36"></textarea>
+    <br>
+  
+    <br><br>
+
+    <label>Upload Photo:</label>
+    <input type="file">
+
+    <br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Clear">
+
+  </form>
+
+</body>
+</html>
