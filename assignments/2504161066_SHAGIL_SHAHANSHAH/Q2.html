@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Semester III – Class Timetable</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f4f7fb;
+            color: #0f172a;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .timetable-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 30px -12px rgba(0, 25, 50, 0.18);
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e9eef5;
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0b1b33;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #3b5673;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* ---- Table styling ---- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-weight: 600;
+            color: #1e3a5f;
+            padding: 0.5rem 0 1rem 0;
+            font-size: 1.05rem;
+        }
+
+        th, td {
+            border: 1px solid #d7e0ea;
+            padding: 0.85rem 0.7rem;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* Header cells */
+        thead th {
+            background: #1e3a5f;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            padding: 1rem 0.5rem;
+        }
+
+        /* Row header (day column) */
+        tbody th {
+            background: #eef3fc;
+            color: #0b2b4f;
+            font-weight: 700;
+            font-size: 0.95rem;
+            width: 110px;
+        }
+
+        /* Subject cells */
+        td {
+            background: #ffffff;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        /* Lab / practical styling */
+        .lab {
+            background: #e9f2ff;
+            color: #0f3d6e;
+            font-weight: 600;
+        }
+
+        .lab small {
+            display: block;
+            font-weight: 400;
+            color: #3c5a7d;
+            font-size: 0.78rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Break / lunch cells */
+        .break {
+            background: #fdf2e9;
+            color: #9b4a0c;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            font-size: 0.85rem;
+        }
+
+        /* Faculty name small text */
+        .faculty {
+            display: block;
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: #4b6584;
+            margin-top: 0.25rem;
+        }
+
+        /* Subject code small text */
+        .code {
+            display: block;
+            font-weight: 400;
+            font-size: 0.72rem;
+            color: #7b8da3;
+            margin-top: 0.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #314e6e;
+            justify-content: flex-end;
+        }
+
+        .legend span::before {
+            content: "■";
+            margin-right: 0.4rem;
+        }
+
+        .legend .l-theory::before { color: #ffffff; text-shadow: 0 0 0 1px #d7e0ea; }
+        .legend .l-lab::before   { color: #b7d2f0; }
+        .legend .l-break::before { color: #f4c9a3; }
+
+        footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #6a7f99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timetable-container">
+        <header>
+            <h1>BCA · Semester III</h1>
+            <p class="subtitle">Class Timetable · Academic Year 2025–26 · Room 204, Block B</p>
+        </header>
+
+        <!-- 
+            THE TABLE: 
+            - <caption> provides an accessible title for the table.
+            - <thead> groups the header row (periods and days).
+            - <tbody> holds the schedule data.
+            - rowspan/colspan are used for the LUNCH break and lab sessions.
+        -->
+        <table>
+            <caption>Weekly timetable — Bachelor of Computer Applications, Semester 3</caption>
+
+            <!-- ============ TABLE HEAD ============ -->
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Period 1<br><small>9:00 – 9:50</small></th>
+                    <th scope="col">Period 2<br><small>9:50 – 10:40</small></th>
+                    <th scope="col">Period 3<br><small>10:40 – 11:30</small></th>
+                    <th scope="col">Period 4<br><small>11:30 – 12:20</small></th>
+                    <!-- LUNCH spans two columns (colspan=2) on every day, 
+                         but we declare the header once with colspan=2 -->
+                    <th scope="col" colspan="2">LUNCH<br><small>12:20 – 1:10</small></th>
+                    <th scope="col">Period 5<br><small>1:10 – 2:00</small></th>
+                    <th scope="col">Period 6<br><small>2:00 – 2:50</small></th>
+                    <th scope="col">Period 7<br><small>2:50 – 3:40</small></th>
+                </tr>
+            </thead>
+
+            <!-- ============ TABLE BODY ============ -->
+            <tbody>
+
+                <!-- ---------- MONDAY ---------- -->
+                <tr>
+                    <th scope="row">Monday</th>
+                    <td>Data Structures<br><span class="code">BCA-301</span><span class="faculty">Dr. R. Mehta</span></td>
+                    <td>Data Structures<br><span class="code">BCA-301</span><span class="faculty">Dr. R. Mehta</span></td>
+                    <td>Operating Systems<br><span class="code">BCA-302</span><span class="faculty">Prof. S. Iyer</span></td>
+                    <td>Mathematics III<br><span class="code">BCA-303</span><span class="faculty">Dr. A. Kulkarni</span></td>
+                    <!-- LUNCH uses colspan=2 -->
+                    <td class="break" colspan="2" rowspan="1">LUNCH BREAK</td>
+                    <td class="lab">DS Lab<br><span class="code">BCA-301L</span><small>Lab 1 · Ms. P. Nair</small></td>
+                    <td class="lab">DS Lab<br><span class="code">BCA-301L</span><small>Lab 1 · Ms. P. Nair</small></td>
+                    <td>Soft Skills<br><span class="code">BCA-304</span><span class="faculty">Ms. T. D'Souza</span></td>
+                </tr>
+
+                <!-- ---------- TUESDAY ---------- -->
+                <tr>
+                    <th scope="row">Tuesday</th>
+                    <td>Web Technologies<br><span class="code">BCA-305</span><span class="faculty">Prof. K. Rao</span></td>
+                    <td>Web Technologies<br><span class="code">BCA-305</span><span class="faculty">Prof. K. Rao</span></td>
+                    <td>Mathematics III<br><span class="code">BCA-303</span><span class="faculty">Dr. A. Kulkarni</span></td>
+                    <td>Operating Systems<br><span class="code">BCA-302</span><span class="faculty">Prof. S. Iyer</span></td>
+                    <!-- LUNCH colspan=2 (consistent with header) -->
+                    <td class="break" colspan="2">LUNCH BREAK</td>
+                    <td class="lab">Web Lab<br><span class="code">BCA-305L</span><small>Lab 2 · Mr. J. Fernandes</small></td>
+                    <td class="lab">Web Lab<br><span class="code">BCA-305L</span><small>Lab 2 · Mr. J. Fernandes</small></td>
+                    <td>Library / Self Study</td>
+                </tr>
+
+                <!-- ---------- WEDNESDAY ---------- -->
+                <tr>
+                    <th scope="row">Wednesday</th>
+                    <td>Computer Networks<br><span class="code">BCA-306</span><span class="faculty">Dr. V. Desai</span></td>
+                    <td>Computer Networks<br><span class="code">BCA-306</span><span class="faculty">Dr. V. Desai</span></td>
+                    <td>Data Structures<br><span class="code">BCA-301</span><span class="faculty">Dr. R. Mehta</span></td>
+                    <td>Web Technologies<br><span class="code">BCA-305</span><span class="faculty">Prof. K. Rao</span></td>
+                    <!-- LUNCH colspan=2 -->
+                    <td class="break" colspan="2">LUNCH BREAK</td>
+                    <td>Mathematics III<br><span class="code">BCA-303</span><span class="faculty">Dr. A. Kulkarni</span></td>
+                    <td class="lab">Networks Lab<br><span class="code">BCA-306L</span><small>Lab 3 · Mr. A. Sheikh</small></td>
+                    <td class="lab">Networks Lab<br><span class="code">BCA-306L</span><small>Lab 3 · Mr. A. Sheikh</small></td>
+                </tr>
+
+                <!-- ---------- THURSDAY ---------- -->
+                <tr>
+                    <th scope="row">Thursday</th>
+                    <td>Operating Systems<br><span class="code">BCA-302</span><span class="faculty">Prof. S. Iyer</span></td>
+                    <td>Computer Networks<br><span class="code">BCA-306</span><span class="faculty">Dr. V. Desai</span></td>
+                    <td>Web Technologies<br><span class="code">BCA-305</span><span class="faculty">Prof. K. Rao</span></td>
+                    <td>Soft Skills<br><span class="code">BCA-304</span><span class="faculty">Ms. T. D'Souza</span></td>
+                    <!-- LUNCH colspan=2 -->
+                    <td class="break" colspan="2">LUNCH BREAK</td>
+                    <!-- OS Lab spans TWO periods (rowspan not needed here, but 
+                         we use a single cell with colspan=2 to show a 2-period lab -->
+                    <td class="lab" colspan="2">OS Lab<br><span class="code">BCA-302L</span><small>Lab 1 · Mr. R. Gupta · 2 periods</small></td>
+                    <td>Mentoring / Club</td>
+                </tr>
+
+                <!-- ---------- FRIDAY ---------- -->
+                <tr>
+                    <th scope="row">Friday</th>
+                    <td>Data Structures<br><span class="code">BCA-301</span><span class="faculty">Dr. R. Mehta</span></td>
+                    <td>Mathematics III<br><span class="code">BCA-303</span><span class="faculty">Dr. A. Kulkarni</span></td>
+                    <td>Operating Systems<br><span class="code">BCA-302</span><span class="faculty">Prof. S. Iyer</span></td>
+                    <td>Computer Networks<br><span class="code">BCA-306</span><span class="faculty">Dr. V. Desai</span></td>
+                    <!-- LUNCH colspan=2 -->
+                    <td class="break" colspan="2">LUNCH BREAK</td>
+                    <td class="lab">DS Lab<br><span class="code">BCA-301L</span><small>Lab 1 · Ms. P. Nair</small></td>
+                    <td class="lab">DS Lab<br><span class="code">BCA-301L</span><small>Lab 1 · Ms. P. Nair</small></td>
+                    <td>Seminar / Guest Lecture</td>
+                </tr>
+
+                <!-- ---------- SATURDAY ---------- -->
+                <tr>
+                    <th scope="row">Saturday</th>
+                    <!-- Two merged lecture periods (colspan=2) -->
+                    <td colspan="2">Workshop / Remedial Class<br><span class="code">BCA-3W</span><span class="faculty">All Faculty</span></td>
+                    <td>Web Technologies<br><span class="code">BCA-305</span><span class="faculty">Prof. K. Rao</span></td>
+                    <td>Computer Networks<br><span class="code">BCA-306</span><span class="faculty">Dr. V. Desai</span></td>
+                    <!-- LUNCH colspan=2 -->
+                    <td class="break" colspan="2">LUNCH BREAK</td>
+                    <!-- Combined lab / activity spanning the rest of the day -->
+                    <td class="lab" colspan="3">Project Work / Lab Practice<br><small>Open Lab · Any Lab · Faculty on duty</small></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- Legend to explain colour coding -->
+        <div class="legend">
+            <span class="l-theory">Theory Class</span>
+            <span class="l-lab">Lab / Practical</span>
+            <span class="l-break">Break</span>
+        </div>
+
+        <footer>
+            <p>BCA Semester III · Department of Computer Applications · Timetable effective 01 July 2025</p>
+        </footer>
+    </div>
+
+</body>
+</html>
