@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration · Online Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #e8f0fe 0%, #f5f7fb 100%);
+            color: #0f172a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 720px;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 45px -20px rgba(0, 30, 60, 0.25);
+            padding: 2.5rem 2.5rem 2rem 2.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eef2f8;
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0b1b33;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #46618a;
+            font-size: 0.95rem;
+            margin-top: 0.35rem;
+        }
+
+        /* ---------- Fieldsets ---------- */
+        fieldset {
+            border: 1px solid #dbe4f0;
+            border-radius: 1rem;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            margin-bottom: 1.75rem;
+            background: #fbfcff;
+        }
+
+        legend {
+            font-weight: 700;
+            color: #1e3a5f;
+            padding: 0 0.6rem;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* ---------- Form groups ---------- */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+        }
+
+        label .required {
+            color: #dc2626;
+            margin-left: 0.15rem;
+        }
+
+        .hint {
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-left: 0.4rem;
+        }
+
+        /* ---------- Input controls ---------- */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: #0f172a;
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 0.65rem;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+        }
+
+        /* File input specific */
+        input[type="file"] {
+            padding: 0.55rem 0.9rem;
+            background: #f8fafc;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: #e0ebff;
+            color: #1e4b8c;
+            border: none;
+            padding: 0.35rem 0.9rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 0.75rem;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Radio & Checkbox groups ---------- */
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            padding-top: 0.25rem;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: #1e293b;
+            margin-bottom: 0;
+            cursor: pointer;
+            background: #ffffff;
+            padding: 0.35rem 0.85rem;
+            border-radius: 2rem;
+            border: 1px solid #dbe4f0;
+            transition: background 0.12s, border-color 0.12s;
+        }
+
+        .radio-group label:hover,
+        .checkbox-group label:hover {
+            background: #f1f7ff;
+            border-color: #b7d2f0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #2563eb;
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+        }
+
+        /* ---------- Two-column layout for some fields ---------- */
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        /* ---------- Action buttons ---------- */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 0.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #eef2f8;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.7rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.15s, background 0.15s;
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            box-shadow: 0 6px 16px -6px #1d4ed8aa;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            box-shadow: 0 8px 20px -6px #1d4ed8cc;
+        }
+
+        .btn-reset {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1.5px solid #dbe4f0;
+        }
+
+        .btn-reset:hover {
+            background: #e9eff7;
+            border-color: #cbd5e1;
+        }
+
+        /* ---------- Footer note ---------- */
+        .form-footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 1.75rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 560px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+            .row {
+                grid-template-columns: 1fr;
+            }
+            .actions {
+                flex-direction: column-reverse;
+            }
+            .actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <header>
+            <h1>Student Registration</h1>
+            <p class="subtitle">Create your student account · All fields marked <span style="color:#dc2626">*</span> are required</p>
+        </header>
+
+        <!-- 
+            The form uses the POST method and enctype="multipart/form-data"
+            because it includes a file upload control.
+        -->
+        <form action="/register" method="post" enctype="multipart/form-data" novalidate>
+
+            <!-- ============================================================
+                 SECTION 1: Personal Information
+            ============================================================= -->
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <!-- NAME: text input, required -->
+                <div class="form-group">
+                    <label for="fullname">
+                        Full Name <span class="required">*</span>
+                        <span class="hint">(as per academic records)</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="fullname" 
+                        placeholder="e.g. Alex Rivera"
+                        autocomplete="name"
+                        minlength="3"
+                        maxlength="60"
+                        required
+                    >
+                </div>
+
+                <!-- EMAIL: HTML5 email type with built-in validation -->
+                <div class="form-group">
+                    <label for="email">
+                        Email Address <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="student@university.edu"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <!-- PASSWORD: password type masks input; minlength enforces policy -->
+                <div class="form-group">
+                    <label for="password">
+                        Password <span class="required">*</span>
+                        <span class="hint">(min. 8 characters)</span>
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter a secure password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <!-- DATE OF BIRTH: native date picker with max (cannot be future) -->
+                <div class="form-group">
+                    <label for="dob">
+                        Date of Birth <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="date" 
+                        id="dob" 
+                        name="dob" 
+                        max="2026-12-31"
+                        required
+                    >
+                </div>
+
+                <!-- GENDER: radio buttons grouped by a fieldset for semantics -->
+                <fieldset style="border:none; padding:0; margin:0 0 0.5rem 0; background:transparent;">
+                    <legend style="font-weight:600; font-size:0.9rem; color:#1e293b; padding:0; margin-bottom:0.4rem;">
+                        Gender <span class="required">*</span>
+                    </legend>
+                    <div class="radio-group" role="radiogroup" aria-label="Gender selection">
+                        <label for="gender-male">
+                            <input type="radio" id="gender-male" name="gender" value="male" required> Male
+                        </label>
+                        <label for="gender-female">
+                            <input type="radio" id="gender-female" name="gender" value="female"> Female
+                        </label>
+                        <label for="gender-other">
+                            <input type="radio" id="gender-other" name="gender" value="other"> Other
+                        </label>
+                        <label for="gender-prefer">
+                            <input type="radio" id="gender-prefer" name="gender" value="prefer-not-to-say"> Prefer not to say
+                        </label>
+                    </div>
+                </fieldset>
+            </fieldset>
+
+            <!-- ============================================================
+                 SECTION 2: Academic Details
+            ============================================================= -->
+            <fieldset>
+                <legend>Academic Details</legend>
+
+                <!-- COURSE: select dropdown -->
+                <div class="form-group">
+                    <label for="course">
+                        Course / Program <span class="required">*</span>
+                    </label>
+                    <select id="course" name="course" required>
+                        <option value="" disabled selected>— Select your course —</option>
+                        <optgroup label="Undergraduate">
+                            <option value="bca">BCA — Bachelor of Computer Applications</option>
+                            <option value="bsc-cs">B.Sc. Computer Science</option>
+                            <option value="bsc-it">B.Sc. Information Technology</option>
+                            <option value="btech-cse">B.Tech — Computer Science &amp; Engineering</option>
+                            <option value="bcom">B.Com — Commerce</option>
+                        </optgroup>
+                        <optgroup label="Postgraduate">
+                            <option value="mca">MCA — Master of Computer Applications</option>
+                            <option value="msc-cs">M.Sc. Computer Science</option>
+                            <option value="mba">MBA</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- HOBBIES: checkboxes (multiple selections allowed) -->
+                <div class="form-group">
+                    <label>
+                        Hobbies &amp; Interests
+                        <span class="hint">(select all that apply)</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label for="hobby-reading">
+                            <input type="checkbox" id="hobby-reading" name="hobbies" value="reading"> Reading
+                        </label>
+                        <label for="hobby-sports">
+                            <input type="checkbox" id="hobby-sports" name="hobbies" value="sports"> Sports
+                        </label>
+                        <label for="hobby-coding">
+                            <input type="checkbox" id="hobby-coding" name="hobbies" value="coding"> Coding
+                        </label>
+                        <label for="hobby-music">
+                            <input type="checkbox" id="hobby-music" name="hobbies" value="music"> Music
+                        </label>
+                        <label for="hobby-art">
+                            <input type="checkbox" id="hobby-art" name="hobbies" value="art"> Art &amp; Design
+                        </label>
+                        <label for="hobby-travel">
+                            <input type="checkbox" id="hobby-travel" name="hobbies" value="travel"> Travel
+                        </label>
+                        <label for="hobby-gaming">
+                            <input type="checkbox" id="hobby-gaming" name="hobbies" value="gaming"> Gaming
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ============================================================
+                 SECTION 3: Contact & Documents
+            ============================================================= -->
+            <fieldset>
+                <legend>Contact &amp; Documents</legend>
+
+                <!-- ADDRESS: textarea for multi-line input -->
+                <div class="form-group">
+                    <label for="address">
+                        Residential Address <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="address" 
+                        name="address" 
+                        rows="3" 
+                        placeholder="House no., street, city, state, PIN code"
+                        autocomplete="street-address"
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- FILE UPLOAD: accept restricts to images and PDF for ID proof -->
+                <div class="form-group">
+                    <label for="idproof">
+                        Upload ID Proof <span class="required">*</span>
+                        <span class="hint">(JPG, PNG or PDF · max 2 MB)</span>
+                    </label>
+                    <input 
+                        type="file" 
+                        id="idproof" 
+                        name="idproof" 
+                        accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"
+                        required
+                    >
+                </div>
+            </fieldset>
+
+            <!-- ============================================================
+                 ACTION BUTTONS: Submit and Reset
+            ============================================================= -->
+            <div class="actions">
+                <button type="reset" class="btn-reset">Reset Form</button>
+                <button type="submit" class="btn-submit">Register Now</button>
+            </div>
+
+        </form>
+
+        <p class="form-footer">
+            Your information is stored securely and used only for academic purposes.
+        </p>
+    </div>
+
+</body>
+</html>
