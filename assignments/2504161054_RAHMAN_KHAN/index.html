@@ -1,64 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>RAHMAN KHAN - Web Technology Lab Portfolio</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f8fafc; color:#1e293b; padding:40px 20px; }
-    .box { max-width:800px; margin:0 auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
-    h1 { margin-top:0; font-size:24px; color:#0f172a; }
-    .meta { color:#64748b; font-size:14px; margin-bottom:20px; border-bottom:1px solid #e2e8f0; padding-bottom:15px; }
-    ul { list-style:none; padding:0; }
-  </style>
+    <title>Student Registration Form</title>
 </head>
+
 <body>
-  <div class="box">
-    <h1>RAHMAN KHAN's Web Technology Lab Work</h1>
-    <div class="meta"><b>Roll No:</b> 2504161054 &nbsp;|&nbsp; <b>Total Uploaded Files:</b> 7</div>
-    <h3>Submitted Practical Assignments:</h3>
-    <ul>
-    <li style="margin-bottom:12px;">
-      <a href="Modern_design_webpage.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 1] Modern_design_webpage.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-1.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 2] index-1.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-2.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 3] index-2.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-3.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 4] index-3.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-4.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 5] index-4.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-5.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 6] index-5.html
-      </a>
-    </li>
-  
-    <li style="margin-bottom:12px;">
-      <a href="index-6.html" target="_blank" style="font-size:16px; color:#2563eb; text-decoration:none; font-weight:600;">
-        📄 [Practical 7] index-6.html
-      </a>
-    </li>
-  </ul>
-  </div>
+    <h2>Student Registration Form</h2>
+    <form action="#" method="post" enctype="multipart/form-data"> <label>Full Name:</label> <input type="text"
+            name="name" required> <br><br> <label>Email:</label> <input type="email" name="email" required> <br><br>
+        <label>Password:</label> <input type="password" name="password" required> <br><br> <label>Gender:</label> <input
+            type="radio" name="gender" value="Male"> Male <input type="radio" name="gender" value="Female"> Female
+        <br><br> <label>Course:</label> <select name="course">
+            <option>BCA</option>
+            <option>BBA</option>
+            <option>B.Com</option>
+            <option>BA</option>
+        </select> <br><br> <label>Date of Birth:</label> <input type="date" name="dob"> <br><br> <label>Hobbies:</label>
+        <input type="checkbox" name="hobby" value="Reading"> Reading <input type="checkbox" name="hobby" value="Sports">
+        Sports <input type="checkbox" name="hobby" value="Coding"> Coding <br><br> <label>Address:</label><br> <textarea
+            name="address" rows="4" cols="30"></textarea> <br><br> <label>Upload Photo:</label> <input type="file"
+            name="photo" accept="image/*"> <br><br> <input type="submit" value="Register"> <input type="reset"
+            value="Reset"> </form>
 </body>
+
 </html>
