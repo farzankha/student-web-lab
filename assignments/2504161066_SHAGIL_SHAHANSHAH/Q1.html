@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera · student profile</title>
+
+    <!-- 
+        This document is a complete HTML profile page for a student.
+        It demonstrates semantic HTML structure and meaningful element usage.
+        Major sections: heading hierarchy, introduction, education, skills, hobbies, image, hyperlinks, footer.
+    -->
+    <style>
+        /* minimal, clean styling – keeps the focus on HTML structure */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8fafc;
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            padding: 1.5rem;
+        }
+
+        .profile-card {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 15px 35px -10px rgba(0, 20, 40, 0.15);
+            padding: 2rem 2rem 1rem 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e9edf2;
+            padding-bottom: 1.5rem;
+        }
+
+        /* main heading hierarchy */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0b1b33;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #2c3e5c;
+            font-weight: 400;
+        }
+
+        .avatar {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .avatar img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: #eef2f6;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin: 1.8rem 0 1rem 0;
+            border-left: 6px solid #3b82f6;
+            padding-left: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            color: #1e293b;
+        }
+
+        /* introduction / blockquote style */
+        .intro {
+            background: #f1f5f9;
+            padding: 1.5rem 2rem;
+            border-radius: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+            font-style: normal;
+            border-left: 8px solid #3b82f6;
+        }
+
+        .intro p {
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Education list */
+        .education-list {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .education-list li {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.85rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .edu-title {
+            font-weight: 700;
+            color: #0b1b33;
+        }
+
+        .edu-meta {
+            color: #475569;
+            font-size: 0.95rem;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        /* Skills – inline badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.25rem 0 0.5rem 0;
+            list-style: none;
+        }
+
+        .skills-container li {
+            background: #e6f0ff;
+            color: #1e4b8c;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid #b9d2ff;
+        }
+
+        /* Hobbies */
+        .hobbies-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-top: 0.75rem;
+        }
+
+        .hobbies-list li {
+            background: #f8fafc;
+            padding: 0.7rem 1rem;
+            border-radius: 0.9rem;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hobbies-list li::before {
+            content: "✦";
+            color: #3b82f6;
+            font-weight: 700;
+            margin-right: 0.25rem;
+        }
+
+        /* Hyperlinks section */
+        .links-panel {
+            background: #f9fcff;
+            border-radius: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+            border: 1px dashed #bdd3f0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .links-panel a {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border 0.15s;
+            padding: 0.2rem 0;
+        }
+
+        .links-panel a:hover {
+            border-bottom-color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        /* footer */
+        footer {
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5e6f8d;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        footer a {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            margin: 0;
+        }
+
+        /* small screens */
+        @media (max-width: 600px) {
+            .profile-card {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .hobbies-list {
+                grid-template-columns: 1fr;
+            }
+            .links-panel {
+                gap: 0.9rem;
+                justify-content: flex-start;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="profile-card">
+        <!-- 
+            HEADER: contains the primary heading (h1), subtitle, and image.
+            The h1 establishes the page's main topic, while the image provides a visual identity.
+        -->
+        <header>
+            <h1>Alex Rivera</h1>
+            <p class="subtitle">Computer Science Student · Class of 2027</p>
+            
+            <!-- 
+                IMAGE: profile picture of the student.
+                The alt text describes the image for accessibility.
+                This fulfils the 'image' requirement.
+            -->
+            <div class="avatar">
+                <img 
+                    src="https://placecats.com/300/300" 
+                    alt="Portrait of Alex Rivera, a smiling student with short dark hair"
+                    width="130"
+                    height="130"
+                >
+            </div>
+        </header>
+
+        <!-- 
+            INTRODUCTION: uses a semantic blockquote-like div with a <p>.
+            The paragraph introduces the student, their interests, and personality.
+            This section corresponds to the 'introduction' requirement.
+        -->
+        <section aria-labelledby="intro-heading">
+            <h2 id="intro-heading">👋 Introduction</h2>
+            <div class="intro">
+                <p>
+                    Hi! I'm Alex, a second-year computer science student at the University of Technology. 
+                    I'm passionate about building clean, user-friendly web applications and solving real-world problems 
+                    with code. I enjoy collaborating on open-source projects, mentoring first-year students, and 
+                    exploring the intersection of design and engineering. Outside the lab, you'll find me hiking, 
+                    reading sci-fi, or experimenting with digital art.
+                </p>
+            </div>
+        </section>
+
+        <!-- 
+            EDUCATION DETAILS: uses an unordered list with nested elements.
+            Each list item contains a heading (implicit) and meta info.
+            The h2 groups the section, and the list provides structured education data.
+        -->
+        <section aria-labelledby="education-heading">
+            <h2 id="education-heading">📚 Education</h2>
+            <ul class="education-list">
+                <li>
+                    <span class="edu-title">B.Sc. in Computer Science</span>
+                    <span class="edu-meta">University of Technology · 2023 – 2027 (expected)</span>
+                    <span class="edu-meta">GPA: 3.9 / 4.0 · Dean's List 2024</span>
+                </li>
+                <li>
+                    <span class="edu-title">High School Diploma</span>
+                    <span class="edu-meta">Riverside High School · Graduated 2023</span>
+                    <span class="edu-meta">Valedictorian · AP Computer Science (5)</span>
+                </li>
+                <li>
+                    <span class="edu-title">Web Development Bootcamp</span>
+                    <span class="edu-meta">CodeCraft Academy · Summer 2024</span>
+                    <span class="edu-meta">Full-stack focus · Certificate of excellence</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 
+            SKILLS: unordered list styled as badges.
+            Each <li> represents a skill. The h2 heading groups them.
+            This is the 'skills' section.
+        -->
+        <section aria-labelledby="skills-heading">
+            <h2 id="skills-heading">🛠️ Skills</h2>
+            <ul class="skills-container">
+                <li>HTML5 &amp; CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <li>Git &amp; GitHub</li>
+                <li>UI/UX fundamentals</li>
+                <li>Responsive design</li>
+                <li>Problem solving</li>
+            </ul>
+        </section>
+
+        <!-- 
+            HOBBIES: unordered list presented as a grid.
+            Each item includes a small decorative pseudo-element.
+            The h2 groups the hobbies.
+        -->
+        <section aria-labelledby="hobbies-heading">
+            <h2 id="hobbies-heading">🎯 Hobbies</h2>
+            <ul class="hobbies-list">
+                <li>Hiking &amp; trail running</li>
+                <li>Digital illustration</li>
+                <li>Reading sci-fi novels</li>
+                <li>Playing the guitar</li>
+                <li>Competitive programming</li>
+                <li>Photography</li>
+            </ul>
+        </section>
+
+        <!-- 
+            HYPERLINKS: a dedicated panel with external and internal links.
+            This satisfies the 'hyperlinks' requirement.
+            Links use target="_blank" and rel for security when appropriate.
+        -->
+        <section aria-labelledby="links-heading">
+            <h2 id="links-heading">🔗 Connect &amp; Explore</h2>
+            <div class="links-panel">
+                <a href="https://github.com/alexrivera-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/alexrivera-cs" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://alexrivera.dev" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                <a href="mailto:alex.rivera@university.edu">Email me</a>
+                <a href="#education-heading">↑ Education</a>
+            </div>
+        </section>
+
+        <!-- 
+            FOOTER: contains copyright information, a secondary link,
+            and a subtle credit. The footer uses semantic <footer> tag.
+        -->
+        <footer>
+            <p class="footer-copy">© 2025 Alex Rivera · Student profile</p>
+            <p>
+                <a href="#top" aria-label="Back to top of page">Back to top ↑</a>
+                &nbsp;·&nbsp;
+                <a href="https://university.edu" target="_blank" rel="noopener">University of Technology</a>
+            </p>
+        </footer>
+    </main>
+
+    <!-- 
+        EXPLANATION OF MAJOR ELEMENTS (as required by the prompt):
+        
+        - <!DOCTYPE html> : declares the document as HTML5.
+        - <html lang="en"> : root element, language set for accessibility.
+        - <head> : metadata, title, and embedded styles.
+        - <main> : wraps the primary content of the profile card (better than generic div).
+        - <header> : contains the h1 and subtitle; groups introductory content.
+        - <h1> : main heading — the student's name (top of hierarchy).
+        - <h2> : section headings (Introduction, Education, Skills, Hobbies, Connect).
+        - <h3> : used implicitly in education list items as styled spans (no explicit h3 needed for list items).
+        - <p> : paragraphs for introduction and footer text.
+        - <img> : profile image with alt text (accessibility).
+        - <ul> / <li> : used for education list, skills list, and hobbies list — semantically appropriate for itemized content.
+        - <section> : groups thematically related content (each with aria-labelledby).
+        - <a> : hyperlinks to external profiles and internal anchor (education).
+        - <footer> : page footer with copyright and back-to-top link.
+        - <style> : embedded CSS to present a clean, readable layout.
+        
+        All major structural elements have been used meaningfully.
+    -->
+</body>
+</html>
