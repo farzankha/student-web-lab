@@ -1,0 +1,29 @@
+<!-- A LEGACY frameset page — NOT recommended -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+  "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+    <title>Department Site</title>
+</head>
+
+<!-- The <frameset> replaces <body>. 
+     rows="80,*" means: first row 80px tall, second row takes the rest. -->
+<frameset rows="80,*" cols="*">
+
+    <!-- Top banner frame -->
+    <frame src="banner.html" name="banner" scrolling="no" noresize>
+
+    <!-- Nested frameset: left nav + main content -->
+    <frameset cols="200,*">
+        <frame src="nav.html" name="nav" scrolling="yes">
+        <frame src="main.html" name="main" scrolling="yes">
+    </frameset>
+
+    <noframes>
+        <body>
+            <p>Your browser does not support frames. Please <a href="main.html">continue here</a>.</p>
+        </body>
+    </noframes>
+
+</frameset>
+</html>
