@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFest 2025 · Photo Gallery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        /* ---------- Gallery container ---------- */
+        .gallery-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f8fafc;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        /* ---------- Responsive grid ---------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        /* ---------- Each figure (image + caption) ---------- */
+        figure {
+            background: #1e293b;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        figure:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ---------- Image sizing: fluid & preserved ---------- */
+        figure img {
+            width: 100%;
+            height: 220px;          /* fixed height for uniform cards */
+            object-fit: cover;       /* crop to fill without distortion */
+            display: block;
+            background: #0f172a;     /* fallback colour while loading */
+        }
+
+        figcaption {
+            padding: 0.9rem 1.1rem 1.1rem 1.1rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        figcaption strong {
+            display: block;
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-wrapper">
+        <header>
+            <h1>TechFest 2025 — Photo Gallery</h1>
+            <p class="subtitle">Highlights from the annual college technology festival · 14–16 March 2025</p>
+        </header>
+
+        <!-- 
+            The gallery uses a <ul> to convey to assistive technology that this 
+            is a LIST of items (each <li> contains a <figure>). 
+            Each <figure> pairs an <img> with its <figcaption>, semantically 
+            binding the image and its description together.
+        -->
+        <ul class="gallery">
+
+            <!-- 1. Keynote -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"
+                        alt="A speaker on stage at TechFest 2025 presenting to a full auditorium of students"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Opening Keynote</strong>
+                        Dr. Priya Sharma (AI Research Lead) kicks off TechFest 2025 to a packed main auditorium.
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- 2. Hackathon -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80"
+                        alt="Three students collaborating around laptops during the 24-hour hackathon"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>24-Hour Hackathon</strong>
+                        Teams of three to four students built working prototypes overnight in the CS block.
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- 3. Robotics exhibit -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
+                        alt="A student demonstrating a small wheeled robot to visitors at the robotics booth"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Robotics Exhibition</strong>
+                        Final-year students showcased autonomous robots at the departmental booth.
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- 4. Coding contest -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"
+                        alt="Rows of students typing on laptops during the competitive programming contest"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Coding Contest</strong>
+                        Over 120 participants solved algorithmic challenges in a 3-hour sprint.
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- 5. Prize distribution -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80"
+                        alt="The principal handing a trophy to a smiling student on stage at the closing ceremony"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Prize Distribution</strong>
+                        Winners received trophies and certificates from the Principal at the closing ceremony.
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- 6. Audience / closing -->
+            <li>
+                <figure>
+                    <img 
+                        src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80"
+                        alt="The student audience applauding at the closing ceremony of TechFest 2025"
+                        width="800" height="533"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>Closing Ceremony</strong>
+                        Students and faculty celebrate the end of a successful three-day festival.
+                    </figcaption>
+                </figure>
+            </li>
+
+        </ul>
+
+        <footer>
+            <p>Photos © 2025 Student Media Club · <a href="#top">Back to top ↑</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
