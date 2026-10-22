@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Entity Challenge · Special Characters in HTML</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f4f7fb;
+            color: #0f172a;
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #0b1b33;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #46618a;
+            margin-top: 0.35rem;
+            font-size: 0.95rem;
+        }
+
+        section {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: #1e3a5f;
+            margin-bottom: 0.9rem;
+            border-left: 5px solid #1d4ed8;
+            padding-left: 0.7rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        th, td {
+            border: 1px solid #dbe4f0;
+            padding: 0.55rem 0.75rem;
+            text-align: left;
+        }
+
+        thead th {
+            background: #1e3a5f;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        code {
+            background: #eef2f8;
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.3rem;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b91c1c;
+        }
+
+        .glyph {
+            font-size: 1.3rem;
+            text-align: center;
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+
+        p { margin-bottom: 0.7rem; color: #334155; }
+
+        .formula {
+            background: #fbfcff;
+            border: 1px dashed #bdd3f0;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-top: 0.75rem;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+
+        .formula .math {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.35rem;
+            color: #0b1b33;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 1.25rem; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 0.4rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Special Characters in HTML</h1>
+            <p class="subtitle">A demonstration of character entities &amp; why they matter</p>
+        </header>
+
+        <!-- ============================================================
+             1. MATHEMATICAL SYMBOLS
+        ============================================================= -->
+        <section aria-labelledby="math-heading">
+            <h2 id="math-heading">∑ Mathematical Symbols</h2>
+            <p>
+                Math symbols are often not available on a standard keyboard, so HTML
+                character references are the reliable way to display them.
+            </p>
+
+            <div class="formula">
+                <span class="math">
+                    &sum; (i&sup2; + 1) = &sum;i&sup2; + &sum;1 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    &radic;16 = 4 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    &pi; &asymp; 3.14159 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    5 &gt; 3 &nbsp;&nbsp;|&nbsp;&nbsp; 2 &le; 7
+                </span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Character reference</th>
+                        <th>Numeric reference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="glyph">&sum;</td><td><code>&amp;sum;</code></td><td><code>&amp;#8721;</code></td><td>N-ary summation</td></tr>
+                    <tr><td class="glyph">&radic;</td><td><code>&amp;radic;</code></td><td><code>&amp;#8730;</code></td><td>Square root</td></tr>
+                    <tr><td class="glyph">&pi;</td><td><code>&amp;pi;</code></td><td><code>&amp;#960;</code></td><td>Greek letter pi</td></tr>
+                    <tr><td class="glyph">&asymp;</td><td><code>&amp;asymp;</code></td><td><code>&amp;#8776;</code></td><td>Almost equal to</td></tr>
+                    <tr><td class="glyph">&le;</td><td><code>&amp;le;</code></td><td><code>&amp;#8804;</code></td><td>Less than or equal to</td></tr>
+                    <tr><td class="glyph">&ge;</td><td><code>&amp;ge;</code></td><td><code>&amp;#8805;</code></td><td>Greater than or equal to</td></tr>
+                    <tr><td class="glyph">&ne;</td><td><code>&amp;ne;</code></td><td><code>&amp;#8800;</code></td><td>Not equal to</td></tr>
+                    <tr><td class="glyph">&infin;</td><td><code>&amp;infin;</code></td><td><code>&amp;#8734;</code></td><td>Infinity</td></tr>
+                    <tr><td class="glyph">&plusmn;</td><td><code>&amp;plusmn;</code></td><td><code>&amp;#177;</code></td><td>Plus-minus sign</td></tr>
+                    <tr><td class="glyph">&deg;</td><td><code>&amp;deg;</code></td><td><code>&amp;#176;</code></td><td>Degree sign</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ============================================================
+             2. COPYRIGHT & LEGAL
+        ============================================================= -->
+        <section aria-labelledby="copy-heading">
+            <h2 id="copy-heading">© Copyright &amp; Legal Symbols</h2>
+            <p>
+                The copyright, trademark, and registered symbols are extremely common
+                in web footers. They must be written as entities to avoid ambiguity.
+            </p>
+
+            <div class="formula">
+                &copy; 2025 University of Technology &nbsp;·&nbsp;
+                TechFest&trade; &nbsp;·&nbsp;
+                SecurePay&reg; &nbsp;·&nbsp;
+                &sect; 12.3
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Character reference</th>
+                        <th>Numeric reference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="glyph">&copy;</td><td><code>&amp;copy;</code></td><td><code>&amp;#169;</code></td><td>Copyright sign</td></tr>
+                    <tr><td class="glyph">&reg;</td><td><code>&amp;reg;</code></td><td><code>&amp;#174;</code></td><td>Registered trademark</td></tr>
+                    <tr><td class="glyph">&trade;</td><td><code>&amp;trade;</code></td><td><code>&amp;#8482;</code></td><td>Trademark sign</td></tr>
+                    <tr><td class="glyph">&sect;</td><td><code>&amp;sect;</code></td><td><code>&amp;#167;</code></td><td>Section sign</td></tr>
+                    <tr><td class="glyph">&para;</td><td><code>&amp;para;</code></td><td><code>&amp;#182;</code></td><td>Paragraph sign (pilcrow)</td></tr>
+                    <tr><td class="glyph">&dagger;</td><td><code>&amp;dagger;</code></td><td><code>&amp;#8224;</code></td><td>Dagger (footnote marker)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ============================================================
+             3. QUOTATION MARKS & APOSTROPHES
+        ============================================================= -->
+        <section aria-labelledby="quote-heading">
+            <h2 id="quote-heading">❝ Quotation Marks &amp; Apostrophes</h2>
+            <p>
+                Straight quotes (<code>"</code> and <code>'</code>) are ambiguous and look
+                unprofessional in prose. Use the typographically correct curly quotes.
+            </p>
+
+            <div class="formula">
+                &ldquo;Knowledge is power.&rdquo; &mdash; Sir Francis Bacon<br>
+                She said, &lsquo;It&rsquo;s time to code.&rsquo;<br>
+                The professor&rsquo;s lecture was inspiring.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Character reference</th>
+                        <th>Numeric reference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="glyph">&ldquo;</td><td><code>&amp;ldquo;</code></td><td><code>&amp;#8220;</code></td><td>Left double quotation mark</td></tr>
+                    <tr><td class="glyph">&rdquo;</td><td><code>&amp;rdquo;</code></td><td><code>&amp;#8221;</code></td><td>Right double quotation mark</td></tr>
+                    <tr><td class="glyph">&lsquo;</td><td><code>&amp;lsquo;</code></td><td><code>&amp;#8216;</code></td><td>Left single quotation mark</td></tr>
+                    <tr><td class="glyph">&rsquo;</td><td><code>&amp;rsquo;</code></td><td><code>&amp;#8217;</code></td><td>Right single quote / apostrophe</td></tr>
+                    <tr><td class="glyph">&bdquo;</td><td><code>&amp;bdquo;</code></td><td><code>&amp;#8222;</code></td><td>Double low-9 quotation mark</td></tr>
+                    <tr><td class="glyph">&laquo;</td><td><code>&amp;laquo;</code></td><td><code>&amp;#171;</code></td><td>Left-pointing double angle quote</td></tr>
+                    <tr><td class="glyph">&raquo;</td><td><code>&amp;raquo;</code></td><td><code>&amp;#187;</code></td><td>Right-pointing double angle quote</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ============================================================
+             4. ANGLE BRACKETS & COMPARISON OPERATORS
+        ============================================================= -->
+        <section aria-labelledby="angle-heading">
+            <h2 id="angle-heading">〈 Angle Brackets &amp; Comparison</h2>
+            <p>
+                The less-than (<code>&lt;</code>) and greater-than (<code>&gt;</code>)
+                signs are the most important entities in HTML — because a raw
+                <code>&lt;</code> would be misinterpreted by the browser as the start
+                of an HTML tag.
+            </p>
+
+            <div class="formula">
+                The tag &lt;p&gt; marks a paragraph.<br>
+                Use &lt; and &gt; for comparison: 5 &lt; 10 and 10 &gt; 5.<br>
+                Encode an ampersand as &amp;amp;.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Character reference</th>
+                        <th>Numeric reference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="glyph">&lt;</td><td><code>&amp;lt;</code></td><td><code>&amp;#60;</code></td><td>Less-than sign</td></tr>
+                    <tr><td class="glyph">&gt;</td><td><code>&amp;gt;</code></td><td><code>&amp;#62;</code></td><td>Greater-than sign</td></tr>
+                    <tr><td class="glyph">&amp;</td><td><code>&amp;amp;</code></td><td><code>&amp;#38;</code></td><td>Ampersand</td></tr>
+                    <tr><td class="glyph">&lang;</td><td><code>&amp;lang;</code></td><td><code>&amp;#10216;</code></td><td>Left angle bracket (mathematical)</td></tr>
+                    <tr><td class="glyph">&rang;</td><td><code>&amp;rang;</code></td><td><code>&amp;#10217;</code></td><td>Right angle bracket (mathematical)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ============================================================
+             5. CURRENCY, ARROWS & MISC
+        ============================================================= -->
+        <section aria-labelledby="misc-heading">
+            <h2 id="misc-heading">€ Currency, Arrows &amp; Miscellaneous</h2>
+            <p>
+                Currency symbols, arrows, and typographic dashes round out the most
+                commonly needed special characters.
+            </p>
+
+            <div class="formula">
+                Price: &euro;49.99 &nbsp;|&nbsp; &pound;39.50 &nbsp;|&nbsp; &yen;5000 &nbsp;|&nbsp; &rupee;750<br>
+                Go right &rarr; then up &uarr; then left &larr; then down &darr;.<br>
+                En dash: 2024&ndash;25 &nbsp;|&nbsp; Em dash: &mdash; &nbsp;|&nbsp; Ellipsis: &hellip;<br>
+                Non-breaking&nbsp;space keeps words together.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Character reference</th>
+                        <th>Numeric reference</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="glyph">&euro;</td><td><code>&amp;euro;</code></td><td><code>&amp;#8364;</code></td><td>Euro sign</td></tr>
+                    <tr><td class="glyph">&pound;</td><td><code>&amp;pound;</code></td><td><code>&amp;#163;</code></td><td>Pound sterling</td></tr>
+                    <tr><td class="glyph">&yen;</td><td><code>&amp;yen;</code></td><td><code>&amp;#165;</code></td><td>Yen sign</td></tr>
+                    <tr><td class="glyph">&#8377;</td><td><code>&amp;#8377;</code></td><td><code>&amp;#x20B9;</code></td><td>Indian rupee (numeric only)</td></tr>
+                    <tr><td class="glyph">&rarr;</td><td><code>&amp;rarr;</code></td><td><code>&amp;#8594;</code></td><td>Rightwards arrow</td></tr>
+                    <tr><td class="glyph">&larr;</td><td><code>&amp;larr;</code></td><td><code>&amp;#8592;</code></td><td>Leftwards arrow</td></tr>
+                    <tr><td class="glyph">&uarr;</td><td><code>&amp;uarr;</code></td><td><code>&amp;#8593;</code></td><td>Upwards arrow</td></tr>
+                    <tr><td class="glyph">&darr;</td><td><code>&amp;darr;</code></td><td><code>&amp;#8595;</code></td><td>Downwards arrow</td></tr>
+                    <tr><td class="glyph">&ndash;</td><td><code>&amp;ndash;</code></td><td><code>&amp;#8211;</code></td><td>En dash</td></tr>
+                    <tr><td class="glyph">&mdash;</td><td><code>&amp;mdash;</code></td><td><code>&amp;#8212;</code></td><td>Em dash</td></tr>
+                    <tr><td class="glyph">&hellip;</td><td><code>&amp;hellip;</code></td><td><code>&amp;#8230;</code></td><td>Horizontal ellipsis</td></tr>
+                    <tr><td class="glyph">&nbsp;</td><td><code>&amp;nbsp;</code></td><td><code>&amp;#160;</code></td><td>Non-breaking space</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Department of Computer Science &mdash; Character entity demonstration.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
