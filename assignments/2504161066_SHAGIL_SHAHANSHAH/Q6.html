@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Science · University of Technology</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f4f7fb;
+            color: #0f172a;
+            line-height: 1.65;
+        }
+
+        /* ---------- Skip link ---------- */
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 1rem;
+            background: #1d4ed8;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 200;
+            transition: top 0.2s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ---------- Header ---------- */
+        header.site-header {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: #fff;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        header.site-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        header.site-header p {
+            color: #bfdbfe;
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav.primary-nav {
+            background: #fff;
+            border-bottom: 2px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px -6px rgba(0, 20, 50, 0.15);
+        }
+
+        nav.primary-nav ul {
+            list-style: none;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 0.5rem;
+        }
+
+        nav.primary-nav a {
+            display: block;
+            padding: 0.95rem 1.1rem;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 3px solid transparent;
+            transition: color 0.15s, border-color 0.15s, background 0.15s;
+        }
+
+        nav.primary-nav a:hover,
+        nav.primary-nav a:focus {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+            background: #f1f7ff;
+            outline: none;
+        }
+
+        nav.primary-nav a[aria-current="page"] {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+            background: #eef4ff;
+        }
+
+        /* ---------- Page layout ---------- */
+        .page-layout {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* ---------- Main content ---------- */
+        main { min-width: 0; }
+
+        main section {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        main section > h2 {
+            font-size: 1.4rem;
+            color: #0b1b33;
+            margin-bottom: 0.9rem;
+            border-left: 5px solid #1d4ed8;
+            padding-left: 0.7rem;
+        }
+
+        main section p { margin-bottom: 0.8rem; color: #334155; }
+
+        /* Articles (self-contained content) */
+        article {
+            background: #fbfcff;
+            border: 1px solid #e5edf7;
+            border-radius: 0.85rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.1rem;
+        }
+
+        article:last-child { margin-bottom: 0; }
+
+        article h3 {
+            font-size: 1.1rem;
+            color: #1e3a5f;
+            margin-bottom: 0.35rem;
+        }
+
+        article .meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        article a {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        article a:hover { text-decoration: underline; }
+
+        /* ---------- Aside (sidebar) ---------- */
+        aside {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 5.5rem;
+        }
+
+        aside h2 {
+            font-size: 1.1rem;
+            color: #0b1b33;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eef2f8;
+        }
+
+        aside h3 {
+            font-size: 0.95rem;
+            color: #1e3a5f;
+            margin: 1.1rem 0 0.4rem 0;
+        }
+
+        aside ul {
+            list-style: none;
+            margin-top: 0.3rem;
+        }
+
+        aside ul li {
+            padding: 0.35rem 0;
+            font-size: 0.88rem;
+            color: #334155;
+            border-bottom: 1px dashed #eef2f8;
+        }
+
+        aside ul li:last-child { border-bottom: none; }
+
+        aside a {
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        aside a:hover { text-decoration: underline; }
+
+        /* ---------- Footer ---------- */
+        footer.site-footer {
+            background: #0b1b33;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        footer.site-footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        footer.site-footer a:hover { text-decoration: underline; }
+
+        footer.site-footer nav {
+            margin-bottom: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 800px) {
+            .page-layout { grid-template-columns: 1fr; }
+            aside { position: static; }
+        }
+
+        @media (max-width: 640px) {
+            nav.primary-nav ul { flex-direction: column; align-items: stretch; }
+            nav.primary-nav a {
+                border-bottom: 1px solid #eef2f8;
+                border-left: 3px solid transparent;
+            }
+            nav.primary-nav a:hover,
+            nav.primary-nav a:focus,
+            nav.primary-nav a[aria-current="page"] {
+                border-left-color: #1d4ed8;
+                border-bottom-color: #eef2f8;
+            }
+            main section { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip link for keyboard / screen-reader users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ============================================================
+         HEADER: introductory content of the page
+         Contains the site identity (h1) and a short tagline.
+    ============================================================= -->
+    <header class="site-header">
+        <h1>Department of Computer Science</h1>
+        <p>Faculty of Science &amp; Technology · University of Technology · Est. 1998</p>
+    </header>
+
+    <!-- ============================================================
+         NAV: the primary navigation menu
+         Links to other pages of the department site.
+         aria-current marks the current page.
+    ============================================================= -->
+    <nav class="primary-nav" aria-label="Primary navigation">
+        <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="labs.html">Labs</a></li>
+            <li><a href="notices.html">Notices</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================
+         PAGE LAYOUT: two-column grid
+         Left column: <main> (primary content)
+         Right column: <aside> (complementary content)
+    ============================================================= -->
+    <div class="page-layout">
+
+        <!-- ========================================================
+             MAIN: the unique, central content of this page
+             Contains <section> blocks, each grouping a topic,
+             and <article> blocks for self-contained content.
+        ========================================================= -->
+        <main id="main-content">
+
+            <!-- SECTION: About the department -->
+            <section aria-labelledby="about-heading">
+                <h2 id="about-heading">About the Department</h2>
+                <p>
+                    The Department of Computer Science at the University of Technology
+                    has been a hub of computing education and research since 1998.
+                    We offer undergraduate and postgraduate programmes in software
+                    engineering, artificial intelligence, data science, and computer
+                    networks, with a strong emphasis on hands-on learning.
+                </p>
+                <p>
+                    Our faculty members are active researchers and industry practitioners
+                    who mentor students in project work, internships, and competitions.
+                </p>
+            </section>
+
+            <!-- SECTION: Notices / announcements, using <article> for each item -->
+            <section aria-labelledby="notices-heading">
+                <h2 id="notices-heading">Latest Notices</h2>
+
+                <!-- ARTICLE: each notice is self-contained and independently shareable -->
+                <article>
+                    <h3>Semester III Internal Exams — Schedule Released</h3>
+                    <span class="meta">Published: 12 March 2025 · by Examination Cell</span>
+                    <p>
+                        The internal assessment schedule for Semester III has been published.
+                        Students should check the notice board and download the timetable.
+                    </p>
+                    <p><a href="notices.html#internal-exams">Read the full notice →</a></p>
+                </article>
+
+                <article>
+                    <h3>TechFest 2025 — Registration Open</h3>
+                    <span class="meta">Published: 05 March 2025 · by Student Council</span>
+                    <p>
+                        Registration for the annual technology festival is now open.
+                        Events include a 24-hour hackathon, coding contest, and robotics
+                        exhibition. Register before 25 March 2025.
+                    </p>
+                    <p><a href="notices.html#techfest">Register for TechFest →</a></p>
+                </article>
+
+                <article>
+                    <h3>Guest Lecture: Advances in Generative AI</h3>
+                    <span class="meta">Published: 28 February 2025 · by Seminar Committee</span>
+                    <p>
+                        Dr. Priya Sharma (AI Research Lead) will deliver a guest lecture on
+                        generative AI on 20 March 2025 in the main auditorium.
+                    </p>
+                    <p><a href="notices.html#guest-lecture">View details →</a></p>
+                </article>
+            </section>
+
+            <!-- SECTION: Courses overview -->
+            <section aria-labelledby="courses-heading">
+                <h2 id="courses-heading">Programmes Offered</h2>
+                <p>
+                    We offer a range of undergraduate and postgraduate programmes
+                    designed to prepare students for careers in computing and research.
+                </p>
+                <ul style="padding-left: 1.25rem; color:#334155;">
+                    <li>BCA — Bachelor of Computer Applications</li>
+                    <li>B.Sc. Computer Science</li>
+                    <li>B.Tech — Computer Science &amp; Engineering</li>
+                    <li>MCA — Master of Computer Applications</li>
+                    <li>M.Sc. Computer Science</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- ========================================================
+             ASIDE: complementary content that supports the main content
+             (quick links, contacts, related info). It is not essential
+             to the main topic but adds useful context.
+        ========================================================= -->
+        <aside aria-labelledby="aside-heading">
+            <h2 id="aside-heading">Quick Info</h2>
+
+            <h3>📍 Location</h3>
+            <p style="font-size:0.88rem; color:#334155;">Block C, 2nd Floor<br>University Campus</p>
+
+            <h3>📞 Contact</h3>
+            <ul>
+                <li><a href="mailto:cs.dept@university.edu">cs.dept@university.edu</a></li>
+                <li><a href="tel:+911234567890">+91 12345 67890</a></li>
+            </ul>
+
+            <h3>🔗 Useful Links</h3>
+            <ul>
+                <li><a href="labs.html">Lab Facilities</a></li>
+                <li><a href="faculty.html">Faculty Directory</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li>
+                    <a href="https://university.edu" target="_blank" rel="noopener noreferrer">
+                        University Portal ↗
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <!-- ============================================================
+         FOOTER: closing content — copyright, secondary nav, credits
+    ============================================================= -->
+    <footer class="site-footer">
+        <nav aria-label="Footer navigation">
+            <a href="privacy.html">Privacy</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="sitemap.html">Sitemap</a>
+            <a href="https://university.edu" target="_blank" rel="noopener noreferrer">University Home ↗</a>
+        </nav>
+        <p>© 2025 Department of Computer Science · University of Technology · All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
