@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration Form</title>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>ABC University</h1>
+        <h2>Student Registration Form</h2>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <form action="#" method="post">
+
+            <!-- Name -->
+            <label for="fullname">
+                Full Name:
+            </label>
+
+            <br>
+
+            <input type="text"
+                   id="fullname"
+                   name="fullname"
+                   placeholder="Enter your full name"
+                   required>
+
+            <br><br>
+
+
+            <!-- Email -->
+            <label for="email">
+                Email Address:
+            </label>
+
+            <br>
+
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="example@email.com"
+                   required>
+
+            <br><br>
+
+
+            <!-- Password -->
+            <label for="password">
+                Password:
+            </label>
+
+            <br>
+
+            <input type="password"
+                   id="password"
+                   name="password"
+                   minlength="8"
+                   required>
+
+            <br><br>
+
+
+            <!-- Gender -->
+            <label>Gender:</label>
+
+            <br>
+
+            <input type="radio"
+                   id="male"
+                   name="gender"
+                   value="male">
+
+            <label for="male">Male</label>
+
+            <br>
+
+            <input type="radio"
+                   id="female"
+                   name="gender"
+                   value="female">
+
+            <label for="female">Female</label>
+
+            <br>
+
+            <input type="radio"
+                   id="other"
+                   name="gender"
+                   value="other">
+
+            <label for="other">Other</label>
+
+            <br><br>
+
+
+            <!-- Course -->
+            <label for="course">
+                Select Course:
+            </label>
+
+            <br>
+
+            <select id="course" name="course" required>
+
+                <option value="">
+                    -- Select Course --
+                </option>
+
+                <option value="bca">
+                    BCA
+                </option>
+
+                <option value="bba">
+                    BBA
+                </option>
+
+                <option value="bcom">
+                    B.Com
+                </option>
+
+                <option value="mba">
+                    MBA
+                </option>
+
+            </select>
+
+            <br><br>
+
+
+            <!-- DOB -->
+            <label for="dob">
+                Date of Birth:
+            </label>
+
+            <br>
+
+            <input type="date"
+                   id="dob"
+                   name="dob"
+                   required>
+
+            <br><br>
+
+
+            <!-- Hobbies -->
+            <label>
+                Hobbies:
+            </label>
+
+            <br>
+
+            <input type="checkbox"
+                   id="reading"
+                   name="hobby"
+                   value="reading">
+
+            <label for="reading">Reading</label>
+
+            <br>
+
+            <input type="checkbox"
+                   id="sports"
+                   name="hobby"
+                   value="sports">
+
+            <label for="sports">Sports</label>
+
+            <br>
+
+            <input type="checkbox"
+                   id="music"
+                   name="hobby"
+                   value="music">
+
+            <label for="music">Music</label>
+
+            <br><br>
+
+
+            <!-- Address -->
+            <label for="address">
+                Address:
+            </label>
+
+            <br>
+
+            <textarea id="address"
+                      name="address"
+                      rows="5"
+                      cols="40"
+                      placeholder="Enter your address">
+            </textarea>
+
+            <br><br>
+
+
+            <!-- File Upload -->
+            <label for="document">
+                Upload Document:
+            </label>
+
+            <br>
+
+            <input type="file"
+                   id="document"
+                   name="document"
+                   accept=".pdf,.jpg,.jpeg,.png">
+
+            <br><br>
+
+
+            <!-- Buttons -->
+            <input type="submit"
+                   value="Register">
+
+            <input type="reset"
+                   value="Reset Form">
+
+        </form>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 ABC University</p>
+    </footer>
+
+</body>
+</html>
