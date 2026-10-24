@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timetable</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+      background: #b3cad4;
+    }
+    
+    .wrap {
+            overflow-x: auto; 
+            max-width: 100%; 
+     }
+          
+    table {
+      border-collapse: collapse;
+      border: 2px solid black;
+      min-width: 750px;
+      background: #fff;
+    }
+    
+    caption {
+               font-size: 20px; 
+               font-weight: bold; 
+               padding: 10px; 
+               background: #ddd; 
+               border: 2px solid black; 
+               border-bottom: 0; 
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 10px 15px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    
+    thead th {
+               background: #eee;
+    }
+    
+    tbody th {
+               background: #f5f5f5; 
+               white-space: nowrap; 
+    }
+    
+    .break {
+              background: #f2c464; 
+              font-weight: bold; 
+     }
+     
+    .lab {
+           background: #cfe8cf; 
+           font-weight: bold;
+     }
+     
+    .footer {
+              font-weight: bold; 
+              text-align: left; 
+     }
+     
+    small { 
+            color: #444; 
+            font-weight: normal; 
+     }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <table>
+      <caption>BCA II Year &ndash; Weekly Timetable</caption>
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th scope="col">Monday</th>
+          <th scope="col">Tuesday</th>
+          <th scope="col">Wednesday</th>
+          <th scope="col">Thursday</th>
+          <th scope="col">Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">10 AM &ndash; 11 AM</th>
+          <td>Data Structure<br><small> Room 101</small></td>
+          <td>Data Structure<br><small> Room 101</small></td>
+          <td>Logic Gate<br><small> Room 102</small></td>
+          <td>HTML<br><small> Room 101</small></td>
+          <td>Data Structure<br><small> Room 101</small></td>
+        </tr>
+        <tr>
+          <th scope="row">11 AM &ndash; 12 PM</th>
+          <td>HTML<br><small> Room 101</small></td>
+          <td>Data Structure<br><small> Room 101</small></td>
+          <td>HTML<br><small> Room 101</small></td>
+          <td>Maths<br><small> Room 103</small></td>
+          <td>Logic Gate<br><small> Room 102</small></td>
+        </tr>
+        <tr>
+          <th scope="row">12 PM &ndash; 1 PM</th>
+          <td colspan="5" class="break">Lunch Break</td>
+        </tr>
+        <tr>
+          <th scope="row">1 PM &ndash; 2 PM</th>
+          <td>Maths<br><small> Room 103</small></td>
+          <td>Maths<br><small> Room 103</small></td>
+          <td rowspan="2" class="lab">Programming Lab<br><small>Lab 1 <br>(double period, 1 PM &ndash; 3 PM)</small></td>
+          <td>Logic Gate<br><small> Room 102</small></td>
+          <td>HTML<br><small> Room 101</small></td>
+        </tr>
+        <tr>
+          <th scope="row">2 PM &ndash; 3 PM</th>
+          <td>&mdash;</td>
+          <td>HTML<br><small> Room 101</small></td>
+          <td>Data Structure<br><small> Room 101</small></td>
+          <td>&mdash;</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6" class="footer">Class Coordinator</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
+</html>
