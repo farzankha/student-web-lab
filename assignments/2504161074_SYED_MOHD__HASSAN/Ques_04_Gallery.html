@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>College Gallery</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+     }
+    
+    h1 {
+        text-align: center;
+     }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+     }
+    
+    figure {
+        margin: 0;
+        text-align: center;
+     }
+     
+    figure img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #e5e5e5;
+    }
+    
+    figcaption {
+       margin-top: 6px; 
+       font-size: 14px; 
+    }
+     
+  </style>
+</head>
+<body>
+  <main>
+    <h1>College Annual Day 2026</h1>
+    <div class="gallery">
+      <figure>
+        <img src="performance01.jpg" width="400" height="300" loading="lazy"
+             alt="Students performing a group dance">
+        <figcaption>Group dance performance</figcaption>
+      </figure>
+      <figure>
+        <img src="performance02.jpg" width="400" height="300" loading="lazy"
+             alt="A student singing">
+        <figcaption>Solo singing performance</figcaption>
+      </figure>
+      <figure>
+        <img src="teachers.jpg" width="400" height="300" loading="lazy"
+             alt="Teachers seated together in the audience">
+        <figcaption>Teachers in the audience</figcaption>
+      </figure>
+      <figure>
+        <img src="faculty and guest.jpg" width="400" height="300" loading="lazy"
+             alt="Faulty with the chief guest">
+        <figcaption>Teachers with the chief guest</figcaption>
+      </figure>
+      <figure>
+        <img src="prizes.jpg" width="400" height="300" loading="lazy"
+             alt="Trophies and certificates displayed">
+        <figcaption>Trophies ready for the prize distribution</figcaption>
+      </figure>
+      <figure>
+        <img src="principal with winners.jpg" width="400" height="300" loading="lazy"
+             alt="Principal presenting a trophy to the winning students">
+        <figcaption>Principal presenting a trophy</figcaption>
+      </figure>
+      <figure>
+        <img src="all students.jpg" width="400" height="300" loading="lazy"
+             alt="All students gathered together">
+        <figcaption>Group photo of all students</figcaption>
+      </figure>
+      <figure>
+        <img src="students and faculty.jpg" width="400" height="300" loading="lazy"
+             alt="Students and faculty members together on stage">
+        <figcaption>Students and Faculty</figcaption>
+      </figure>
+    </div>
+  </main>
+</body>
+</html>
