@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #949494;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+     }
+    
+    form {
+      background: white; 
+      width: 95%;
+      max-width: 600px;
+      margin: 30px 0;
+      padding: 20px;
+     }
+    
+    h2 {
+      text-align: center;
+      color: #4a6741;
+     }
+    
+    .field {
+       margin-bottom: 18px;
+     }
+     
+    label, legend {
+       display: block;
+       font-weight: bold;
+       margin-bottom: 5px;
+       color: #444;
+     }
+     
+    input, select, textarea {
+       width: 100%;
+       padding: 10px 12px;
+       font-size: 14px;
+       box-sizing: border-box;
+     }
+     
+    fieldset {
+       border: 1px solid #ccc;
+       margin: 0 0 18px;
+       padding: 10px 12px; 
+     }
+     
+    legend {
+       padding: 0 6px;
+     }
+     
+    .inline-group label {
+         display: inline;
+         font-weight: normal;
+         margin-right: 15px;
+     }
+     
+    .inline-group input {
+         width: auto;
+         margin-right: 5px;
+     }
+     
+    input[type="file"] {
+        padding: 6px;
+     }
+     
+    .req {
+        color: #b00020;
+     }
+     
+    .buttons {
+         display: flex;
+         gap: 10px;
+         margin-top: 10px;
+     }
+     
+    .buttons input {
+         width: 50%;
+         padding: 10px;
+         font-weight: bold;
+         font-size: 16px;
+     }
+     
+    input[type="submit"] {
+         background: #a5b856;
+     }
+     
+    input[type="submit"]:hover {
+         background: #8fa347;
+     }
+     
+    input[type="reset"] {
+         background: #e0e0e0;
+     }
+     
+    input[type="reset"]:hover {
+         background: #cacaca;
+     }
+     
+  </style>
+</head>
+<body>
+  <form action="#" method="POST" enctype="multipart/form-data">
+    <h2>Student Registration</h2>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="field">
+        <label for="fullname">Full Name <span class="req">*</span></label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" name="email" placeholder="example@mailid.com" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="password">Password <span class="req">*</span></label>
+        <input type="password" id="password" name="password" placeholder="Minimum 6 characters" minlength="6" autocomplete="new-password" required>
+      </div>
+      <div class="field">
+        <label for="dob">Date of Birth <span class="req">*</span></label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+      <div class="field inline-group">
+        <span id="gender-label" style="font-weight:bold; color:#444; display:block; margin-bottom:5px;">Gender <span class="req">*</span></span>
+        <div role="radiogroup" aria-labelledby="gender-label">
+          <input type="radio" id="male" name="gender" value="Male" required>
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="Other">
+          <label for="other">Other</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Academic Details</legend>
+      <div class="field">
+        <label for="course">Course <span class="req">*</span></label>
+        <select id="course" name="course" required>
+          <option value="" selected disabled>-- Select course --</option>
+          <option value="BCA">BCA</option>
+          <option value="B Tech">B Tech</option>
+          <option value="B Sc">B Sc</option>
+          <option value="B Com">B Com</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Other Details</legend>
+      <div class="field inline-group">
+        <span id="hobby-label" style="font-weight:bold; color:#444; display:block; margin-bottom:5px;">Hobbies</span>
+        <div role="group" aria-labelledby="hobby-label">
+          <input type="checkbox" id="literature" name="hobbies" value="literature">
+          <label for="literature">Literature</label>
+          <input type="checkbox" id="sports" name="hobbies" value="sports">
+          <label for="sports">Sports</label>
+          <input type="checkbox" id="music" name="hobbies" value="music">
+          <label for="music">Music</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="address">Address <span class="req">*</span></label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter address" autocomplete="street-address" required></textarea>
+      </div>
+      <div class="field">
+        <label for="photo">Upload Photo</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+      </div>
+    </fieldset>
+
+    <div class="buttons">
+      <input type="submit" value="Register">
+      <input type="reset" value="Clear All">
+    </div>
+    <p style="font-size:13px; color:#555; margin-top:15px;"><span class="req">*</span> Required fields</p>
+  </form>
+
+  <script>
+    // Stop users picking a future date of birth
+    document.getElementById("dob").max = new Date().toISOString().split("T")[0];
+  </script>
+</body>
+</html>
