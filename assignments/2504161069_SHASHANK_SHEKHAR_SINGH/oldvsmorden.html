@@ -1,0 +1,18 @@
+<div class="page">
+<header>College Department</header>
+<nav>Home | Courses | Faculty</nav>
+<main>
+<section><h2>Welcome</h2><p>Department information.</p></section>
+<aside>Quick links</aside>
+</main>
+<footer>Contact information</footer>
+</div>
+<style>
+.page { display: grid; gap: 1rem; }
+header, nav, main, footer { padding: 1rem; }
+main { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+@media (max-width: 600px) {
+BCA 304 Assignment Page 10
+main { grid-template-columns: 1fr; }
+}
+</style>
