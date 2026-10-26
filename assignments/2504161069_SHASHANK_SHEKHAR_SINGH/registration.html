@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+</head>
+<body>
+<h1>Student Registration Form</h1>
+<form action="#" method="post" enctype="multipart/form-data">
+<label for="name">Full name:</label>
+<input id="name" name="name" type="text" required><br>
+<label for="email">Email:</label>
+<input id="email" name="email" type="email" required><br>
+<label for="password">Password:</label>
+<input id="password" name="password" type="password" required minlength="8"><br>
+<p>Gender:</p>
+<label><input type="radio" name="gender" value="female"> Female</label>
+<label><input type="radio" name="gender" value="male"> Male</label>
+<label><input type="radio" name="gender" value="other"> Other</label><br>
+<label for="course">Course:</label>
+<select id="course" name="course">
+<option value="bca">BCA</option>
+<option value="bba">BBA</option>
+<option value="bcom">B.Com.</option>
+</select><br>
+<label for="dob">Date of birth:</label>
+<input id="dob" name="dob" type="date"><br>
+<p>Hobbies:</p>
+<label><input type="checkbox" name="hobbies" value="reading"> Reading</label>
+<label><input type="checkbox" name="hobbies" value="sports"> Sports</label><br>
+<label for="address">Address:</label>
+<textarea id="address" name="address" rows="3"></textarea><br>
+<label for="photo">Upload document/photo:</label>
+<input id="photo" name="photo" type="file"><br>
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+</form>
+</body>
+</html>
